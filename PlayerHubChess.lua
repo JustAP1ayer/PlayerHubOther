@@ -1,4 +1,10 @@
 -- ignore the flunky ass code
+wait(0.5)
+local bb=game:service'VirtualUser'
+game:service'Players'.LocalPlayer.Idled:connect(function()
+bb:CaptureController()
+bb:ClickButton2(Vector2.new())
+end)
 
 getgenv().LibTheme = {
     MainColor = Color3.fromRGB(45,35,35);
@@ -32,8 +38,6 @@ local Button = Section.Component("Button","Delete all gates",function()
     game:GetService("Workspace").Gates:Destroy()
         end)
         
-local Page = Main.Page("Equip Skins","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
-
 local Button = Section.Component("Button","Bring all chess balls to you (not mine)",function()
     local UserInputService = game:GetService("UserInputService")
     local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
