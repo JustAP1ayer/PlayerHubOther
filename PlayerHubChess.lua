@@ -1,12 +1,5 @@
 -- ignore the flunky ass code
 
-wait(0.5)
-local bb=game:service'VirtualUser'
-game:service'Players'.LocalPlayer.Idled:connect(function()
-bb:CaptureController()
-bb:ClickButton2(Vector2.new())
-end)
-
 getgenv().LibTheme = {
     MainColor = Color3.fromRGB(45,35,35);
     BrighterMainColor = Color3.fromRGB(45,40,40);
