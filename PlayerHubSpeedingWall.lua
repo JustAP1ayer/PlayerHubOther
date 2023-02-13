@@ -40,21 +40,23 @@ local Toggle = Section.Component("Toggle","Autofarm Points",function(bool)
 	
 	while wait() do
 		if _G.autofarm == true then
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1041.19165, 19.54175, 411.084503, 0.0160721727, 3.80275234e-09, -0.999870837, -4.04203782e-09, 1, 3.73827103e-09, 0.999870837, 3.98143341e-09, 0.0160721727)
+            task.wait(0.025)
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1041.84729, 24.021759, 410.903748, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            task.wait(0.03)
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1041.06726, 16.3217564, 412.603729, 0, 0, -1, 0, 1, 0, 1, 0, 0)
 			task.wait(0.17)
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-739.413086, 19.5398579, 236.24707, 0.0115235355, -8.92517988e-08, -0.9999336, 6.78112073e-08, 1, -8.84762485e-08, 0.9999336, -6.67871518e-08, 0.0115235355)
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-737.947266, 24.021759, 238.003754, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            task.wait(0.03)
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-739.147522, 16.3198643, 231.56601, 0, 0, -1, 0, 1, 0, 1, 0, 0)
 			task.wait(0.17)
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-440.637146, 19.5593281, 410.462341, -0.0202257615, -3.53708751e-09, -0.999795437, 5.65120573e-09, 1, -3.65213459e-09, 0.999795437, -5.7239169e-09, -0.0202257615)
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-441.247253, 24.021759, 411.503754, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            task.wait(0.03)
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-439.762268, 16.3393345, 417.383698, 0, 0, -1, 0, 1, 0, 1, 0, 0)
 			task.wait(0.17)
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-139.853806, 19.5298481, 239.541962, 0.0387617834, 2.64360089e-09, -0.999248505, 1.01479145e-08, 1, 3.0392362e-09, 0.999248505, -1.02580948e-08, 0.0387617834)
-			task.wait(0.17)
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(154.028564, 13.0398264, 309.891296, -0.0610229038, -9.38057099e-08, -0.998136342, 5.17312984e-08, 1, -9.71435483e-08, 0.998136342, -5.75628718e-08, -0.0610229038)
-			task.wait(0.17)
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(265.214264, -72.8728333, 323.250122, -0.031096708, 2.93349078e-09, 0.999516368, 6.52960921e-08, 1, -9.03433994e-10, -0.999516368, 6.52364207e-08, -0.031096708)
-			task.wait(0.17)
-			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1437.55811, 15.7254801, 193.869049, -0.99989152, -1.6025826e-08, 0.0147274826, -1.51199817e-08, 1, 6.16183797e-08, -0.0147274826, 6.13890165e-08, -0.99989152)
-
-			task.wait(0.1)
+			game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-139.082031, 16.3098545, 237.155304, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+            task.wait(0.03)
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-139.147278, 24.021759, 238.203751, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+			task.wait(0.14)
 			prev = game:GetService("Players").LocalPlayer.Character:WaitForChild('HumanoidRootPart').CFrame
 			game:GetService("Players").LocalPlayer.Character.Parent = workspace.Terrain
 			game:GetService("Players").LocalPlayer.Character:BreakJoints()
@@ -250,4 +252,6 @@ local Slider2 = Section.Component("Slider2","Walkspeed",0,250,false,function(val
                     end)
                     tool.Parent = game.Players.LocalPlayer.Backpack
                     end)
+
+
 
