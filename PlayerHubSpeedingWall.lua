@@ -77,6 +77,22 @@ wait(.05)
     end
   end,false)
 
+  local Toggle = Section.Component("Toggle","Autofarm Activations",function(bool)
+    getgenv().ButtonSpam = bool;
+    while getgenv().ButtonSpam do             
+    
+    task.wait(.5)
+        local playerHead = game.Players.LocalPlayer.Character.Head
+    for i, v in 
+    pairs(game:GetService("Workspace").Map.NeonPartsTunnel["1Ins"].Button:GetDescendants()) do
+                                if v.name == "TouchInterest" and v.Parent then
+                                  firetouchinterest(playerHead, v.Parent, 0)
+                                wait(.3)
+                                 firetouchinterest(playerHead, v.Parent, 1)
+                            break;
+                            end end end
+  end,false)
+
 local Page = Main.Page("Badges","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
 local Section = Page.Section("Free badges here")
