@@ -95,6 +95,29 @@ wait(.05)
                             end end end
   end,false)
 
+  local Button = Section.Component("Button","Disable Wall Damage",function()
+    game:GetService("Workspace").Map.Tunnel.Wall.Face.TouchInterest:Destroy()
+    game:GetService("Workspace").Map.Tunnel.Wall.TouchInterest:Destroy()
+    end)
+
+    local Toggle = Section.Component("Toggle","Disable Wall Collision",function(bool)
+Noclip = bool
+while Noclip do
+    wait()
+    for i, v in pairs(game:GetService("Workspace").Map.Tunnel:GetChildren()) do
+        if v:IsA("BasePart") and v.Name:match("Wall") then
+            if Noclip then
+                v.CanCollide = false
+                print("Collision Off!")
+            else
+                v.CanCollide = true
+            end
+        end
+    end
+end
+      end,false)
+
+
 local Page = Main.Page("Badges","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
 local Section = Page.Section("Free badges here")
@@ -169,6 +192,17 @@ end end
                                 break;
                                 end end
                                         end)
+
+                                        local Button = Section.Component("Button","Impossible Wall Badge",function()
+                                            local playerHead = game.Players.LocalPlayer.Character.Head
+                                            for i, v in pairs(game:GetService("Workspace").Impossible.CompletedImpossible:GetDescendants()) do
+                                            if v.name == "TouchInterest" and v.Parent then
+                                              firetouchinterest(playerHead, v.Parent, 0)
+                                            wait(1)
+                                             firetouchinterest(playerHead, v.Parent, 1)
+                                        break;
+                                        end end
+                                                end)
 
 local Page = Main.Page("Teleports","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
@@ -252,6 +286,5 @@ local Slider2 = Section.Component("Slider2","Walkspeed",0,250,false,function(val
                     end)
                     tool.Parent = game.Players.LocalPlayer.Backpack
                     end)
-
 
 
