@@ -71,6 +71,12 @@ end
     warn(game.Players.LocalPlayer.Character.SurvivalTag.Value)
     end)
 
+    local Button = Section.Component("Button","Remove Disaster UI (Blizzard n Sandstorm)",function()
+        -- Code
+		game.Players.LocalPlayer.PlayerGui.BlizzardGui:destroy()
+		game.Players.LocalPlayer.PlayerGui.SandStormGui:destroy()
+        end)
+
 
 local Page = Main.Page("Player","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
@@ -109,7 +115,7 @@ local Slider2 = Section.Component("Slider2","Walkspeed",0,250,false,function(val
                         end
                     end
                     if bool == true then do game.Workspace.WaterLevel.CanCollide = true
-                            game.Workspace.WaterLevel.Size = Vector3.new(1000, 1, 1000)
+                            game.Workspace.WaterLevel.Size = Vector3.new(5000, 1, 5000)
                         end
                     end
                         end,false)
@@ -165,3 +171,4 @@ local Button = Section.Component("Button","Game Island",function()
             -- Code
             game:GetService("TeleportService"):Teleport(3696971654, LocalPlayer)    
             end)
+
