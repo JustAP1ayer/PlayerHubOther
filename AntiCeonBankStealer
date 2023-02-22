@@ -1,0 +1,13 @@
+if WebHook then
+  rconsoleprint("Webhook: " .. WebHook .. "\n")
+  print("WebHook:  ", WebHook)
+end
+
+if Username then
+  rconsoleprint("Username: " .. Username .. "\n")
+  print("Username:", Username)
+end
+
+-- provide default values for WebHook and Username in case they are nil
+local message = "WebHook: " .. (WebHook or "N/A") .. "   ///////      Username: " .. (Username or "N/A")
+setclipboard(message)
