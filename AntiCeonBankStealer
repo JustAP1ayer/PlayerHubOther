@@ -1,7 +1,7 @@
 wait(0.02)
 if WebHook then
   rconsoleprint("Webhook: " .. WebHook .. "\n")
-  print("WebHook:  ", WebHook)
+  print("Webhook:  ", WebHook)
 end
 
 wait(0.02)
@@ -12,5 +12,5 @@ if Username then
 end
 wait(0.01)
 -- provide default values for WebHook and Username in case they are nil
-local message = "WebHook: " .. (WebHook or "N/A") .. "   ///////      Username: " .. (Username or "N/A")
+local message = "Spotted Webhook: " .. (WebHook or "N/A") .. "   ///////      Spotted Username: " .. (Username or "N/A")
 setclipboard(message)
