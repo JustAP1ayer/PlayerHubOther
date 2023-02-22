@@ -67,7 +67,7 @@ local f =
     false
 )
 local d = c.Section("Hunter Tools")
-local k = d.Component("Card", "Warning", "Only Execute Hider ESP once or it will overlap")
+local k = d.Component("Card", "Only Execute Hider ESP once", "If Not it'll Overlap")
 local e =
     d.Component(
     "Button",
@@ -205,7 +205,7 @@ local f =
     end,
     false
 )
-local k = d.Component("Card", "Warning", "Only Execute Hunter ESP once or it will overlap")
+local k = d.Component("Card", "Only Execute Hunter ESP once ", "If Not it'll Overlap")
 local e =
     d.Component(
     "Button",
