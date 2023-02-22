@@ -14,3 +14,36 @@ wait(0.01)
 -- provide default values for WebHook and Username in case they are nil
 local message = "Spotted Webhook: " .. (WebHook or "N/A") .. "   ///////      Spotted Username: " .. (Username or "N/A")
 setclipboard(message)
+
+
+
+-- or
+
+
+
+
+
+-- check if either Username or UserName variables exist and assign to Username variable
+if Username == nil and UserName ~= nil then
+  Username = UserName
+end
+
+wait(0.02)
+
+if WebHook then
+  rconsoleprint("Webhook: " .. WebHook .. "\n")
+  print("Webhook:  ", WebHook)
+end
+
+wait(0.02)
+
+if Username then
+  rconsoleprint("Username: " .. Username .. "\n")
+  print("Username:", Username)
+end
+
+wait(0.01)
+
+-- provide default values for WebHook and Username in case they are nil
+local message = "Spotted Webhook: " .. (WebHook or "N/A") .. "   ///////      Spotted Username: " .. (Username or "N/A")
+setclipboard(message)
