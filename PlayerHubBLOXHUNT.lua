@@ -77,7 +77,7 @@ local Toggle = Section.Component("Toggle","Autofarm Tokens1",function(bool)
 
                                                   local Paragraph = Section.Component("Card", "Click on the person for the fast kill", "It will spam the shock")
 
-                                                  local Paragraph = Section.Component("Card", "FAST ZAP CAN TEAM KILL LOL", "(Works in non-disguises)")
+                                                  local Paragraph = Section.Component("Card", "FAST ZAP CAN TEAM KILL LOL", "(Works best in non-disguises)")
 
 
                                                   local Toggle = Section.Component("Toggle","Fast Zap",function(bool)
@@ -106,7 +106,7 @@ local Toggle = Section.Component("Toggle","Autofarm Tokens1",function(bool)
 
                                                   local Paragraph = Section.Component("Card", "Buggy AF", "Will lag you aswell")
 
-                                                  local Toggle = Section.Component("Toggle","Server Lagger",function(bool)
+                                                  local Toggle = Section.Component("Toggle","Server Lagger (1/4)",function(bool)
                                                     _G.Lagger = bool;
 
                                                     while _G.Lagger do
