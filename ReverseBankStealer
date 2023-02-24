@@ -1,18 +1,18 @@
 wait(0.05)
 if _G.Webhook then
   print(_G.Webhook)
-  rconsoleprint("Webhook found!  " .. _G.Webhook)
+  rconsoleprint("Webhook found! " .. _G.Webhook .. "\n")
 else
   print("Webhook not found")
-  rconsoleprint("No webhook!")
+  rconsoleprint("No webhook!\n")
 end
 
 if _G.UserID then
   print(_G.UserID)
-  rconsoleprint(_G.UserID)
+  rconsoleprint("User Identification: " .. _G.UserID .. "\n")
 else
   print("UserID not found")
-  rconsoleprint("No user ID!")
+  rconsoleprint("No user ID!\n")
 end
 
 -- check if either Username or UserName variables exist and assign to Username variable
