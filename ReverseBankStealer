@@ -1,4 +1,119 @@
 wait(0.05)
+
+if _G.WebHook ~= nil then
+  print(_G.WebHook)
+  rconsoleprint("Webhook found! " .. _G.WebHook .. "\n")
+else
+  print("Webhook not found")
+  rconsoleprint("No webhook!\n")
+end
+if _G.Webhook ~= nil then
+  print(_G.Webhook)
+  rconsoleprint("Webhook found! " .. _G.Webhook .. "\n")
+else
+  print("Webhook not found")
+  rconsoleprint("No webhook!\n")
+end
+
+if _G.UserID ~= nil then
+  print(_G.UserID)
+  rconsoleprint("User Identification: " .. _G.UserID .. "\n")
+else
+  print("UserID not found")
+  rconsoleprint("No user ID!\n")
+end
+
+if _G.Username ~= nil then
+  print(_G.Username)
+  rconsoleprint("User name: " .. _G.Username .. "\n")
+else
+  print("UserID not found")
+  rconsoleprint("No user ID!\n")
+end
+
+if _G.AuthServer  ~= nil then
+  print(_G.AuthServer )
+  rconsoleprint("Webhook / AuthServer found! " .. _G.AuthServer  .. "\n")
+else
+  print("Webhook / AuthServer  not found")
+  rconsoleprint("No AuthServer  / webhook!\n")
+end
+
+if _G.Owner ~= nil then
+  print(_G.Owner)
+  rconsoleprint("Stealer Owner: " .. _G.Owner .. "\n")
+else
+  print("Stealer Owner not found")
+  rconsoleprint("No Stealer Owner!\n")
+end
+
+
+-- check if either Username or UserName variables exist and assign to Username variable
+if Username == nil and UserName ~= nil then
+    Username = UserName
+end
+
+wait(0.02)
+
+-- check for both WebHook and Webhook variables and assign to webHook variable
+local webHook = WebHook or Webhook
+
+if webHook ~= nil then
+    rconsoleprint("Webhook: " .. webHook .. "\n")
+    print("Webhook: ", webHook)
+end
+
+wait(0.02)
+
+if Username then
+    rconsoleprint("Username: " .. Username .. "\n")
+    print("Username: ", Username)
+end
+
+wait(0.01)
+
+-- provide default values for Webhook and Username in case they are nil
+local message = "Spotted Webhook: " .. (webHook or _G.AuthServer or _G.Webhook or  _G.WebHook or "N/A") .. "   ///////      Spotted Username or User Idenfication: " .. (Username or _G.Owner or  _G.UserID or _G.Username or "N/A")
+setclipboard(message)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- or
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wait(0.05)
 if _G.Webhook then
   print(_G.Webhook)
   rconsoleprint("Webhook found! " .. _G.Webhook .. "\n")
