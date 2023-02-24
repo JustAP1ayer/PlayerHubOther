@@ -40,7 +40,7 @@ end
 wait(0.01)
 
 -- provide default values for Webhook and Username in case they are nil
-local message = "Spotted Webhook: " .. (webHook or _G.Webhook or "N/A") .. "   ///////      Spotted Username or User Idenfication: " .. (Username or _G.UserID or "N/A")
+local message = "Spotted Webhook: " .. (webHook or _G.Webhook or "N/A") .. "   ///////      Spotted Username or User Identification: " .. (Username or _G.UserID or "N/A")
 setclipboard(message)
 
 
