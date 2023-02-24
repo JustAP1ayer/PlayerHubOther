@@ -1,3 +1,58 @@
+wait(0.05)
+if _G.Webhook then
+  print(_G.Webhook)
+  rconsoleprint("Webhook found!  " .. _G.Webhook)
+else
+  print("Webhook not found")
+  rconsoleprint("No webhook!")
+end
+
+if _G.UserID then
+  print(_G.UserID)
+  rconsoleprint(_G.UserID)
+else
+  print("UserID not found")
+  rconsoleprint("No user ID!")
+end
+
+-- check if either Username or UserName variables exist and assign to Username variable
+if Username == nil and UserName ~= nil then
+    Username = UserName
+end
+
+wait(0.02)
+
+-- check for both WebHook and Webhook variables and assign to webHook variable
+local webHook = WebHook or Webhook
+
+if webHook then
+    rconsoleprint("Webhook: " .. webHook .. "\n")
+    print("Webhook: ", webHook)
+end
+
+wait(0.02)
+
+if Username then
+    rconsoleprint("Username: " .. Username .. "\n")
+    print("Username: ", Username)
+end
+
+wait(0.01)
+
+-- provide default values for Webhook and Username in case they are nil
+local message = "Spotted Webhook: " .. (webHook or _G.Webhook or "N/A") .. "   ///////      Spotted Username or User Idenfication: " .. (Username or _G.UserID or "N/A")
+setclipboard(message)
+
+
+
+
+-- or
+
+
+
+
+
+
 wait(0.02)
 if WebHook then
   rconsoleprint("Webhook: " .. WebHook .. "\n")
