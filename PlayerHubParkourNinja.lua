@@ -1,14 +1,20 @@
+local rainbowFrequency = 0.75 
+local tick = tick()
+
 getgenv().LibTheme = {
-    MainColor = Color3.fromRGB(35,35,40);
-    BrighterMainColor = Color3.fromRGB(40,40,45);
-    IconsColor = Color3.fromRGB(100,100,120);
-    Accent = Color3.fromRGB(0,100,255);
-    DarkText = Color3.fromRGB(170,170,170);
-    BrightText = Color3.fromRGB(145,145,145);
-    Font = "Gotham";
-    SoundVolume = 0.5;
+    MainColor = Color3.fromRGB(35, 35, 40),
+    BrighterMainColor = Color3.fromRGB(40, 40, 45),
+    IconsColor = Color3.fromRGB(100, 100, 120),
+    Accent = Color3.new(math.sin(tick * rainbowFrequency) * 0.5 + 0.5, 
+                        math.sin(tick * rainbowFrequency + 2 * math.pi / 3) * 0.5 + 0.5,
+                        math.sin(tick * rainbowFrequency + 4 * math.pi / 3) * 0.5 + 0.5),
+    DarkText = Color3.fromRGB(170, 170, 170),
+    BrightText = Color3.fromRGB(145, 145, 145),
+    Font = "Gotham",
+    SoundVolume = 0.5,
     HideKey = "LeftAlt"
 }
+
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/ASalfinUiBackup-/main/OcerLibBACKUP.lua"))()
 
@@ -87,6 +93,75 @@ local t=string.byte;local r=string.char;local c=string.sub;local s=table.concat;
                        end,false)
 
                       
+                       local Button = Section.Component("Button","Auto Respawn (camera bug)",function()
+                        local Players = game:GetService("Players")
+                        local localPlayer = Players.LocalPlayer
+                        
+                        while not localPlayer do
+                            localPlayer = Players.LocalPlayer
+                            Players.PlayerAdded:Wait()
+                        end
+                        
+                        local function respawnPlayer()
+                            game:GetService("ReplicatedStorage").RemoteTriggers.SpawnIn:FireServer()
+                                    game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                                task.wait(2)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                                        game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                                        task.wait(.5)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                                        task.wait(.5)
+                                        game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                                        task.wait(.5)
+                                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                                        task.wait(.5)
+                                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                                        task.wait(.5)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(.5)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(.5)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(.5)
+                                    game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(.1)
+                                        game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                                            wait(.5)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(.5)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(.5)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(1)
+                                    game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(1)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(4)
+                            game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(3)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(1)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(1)
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(1)
+                            game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(4)
+                            game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            wait(3)
+                         
+                            if game:GetService("Workspace").CurrentCamera.CameraType == Enum.CameraType.Scriptable then
+                                game:GetService("Workspace").CurrentCamera.CameraType = Enum.CameraType.Custom
+                            end
+                        end
+                        
+                        localPlayer.CharacterAdded:Connect(function(char)
+                            char:WaitForChild("Humanoid").Died:Connect(respawnPlayer)
+                        end)
+                                            
+                       end)
 
 local Page = Main.Page("Player","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
