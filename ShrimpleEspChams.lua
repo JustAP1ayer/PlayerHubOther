@@ -3,7 +3,9 @@ local function addHighlight(character)
     local highlight = Instance.new("Highlight", character)
 end
 local function onCharacterAdded(character)
-    addHighlight(character)
+    if not character:FindFirstChildOfClass("Highlight") then
+        addHighlight(character)
+    end
     character.DescendantAdded:Connect(function(descendant)
         if descendant:IsA("Humanoid") then
             descendant.Died:Connect(function()
