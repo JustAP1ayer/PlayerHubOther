@@ -1,3 +1,10 @@
+getgenv().cham = false
+getgenv().nameESP = false
+getgenv().boxESP = false
+getgenv().esp_loaded = false
+getgenv().Visibility = false
+
+
 local rainbowFrequency = 0.75 
 local tick = tick()
 
@@ -192,6 +199,36 @@ end,18)
                     end
                 end)
                end,false)
+
+               local Section = Page.Section("ESP")
+
+               local Paragraph = Section.Component("Card", "Not mine lol", "ESP made by skatbr")
+
+               local Toggle = Section.Component("Toggle","Enable Visuals",function(Value)
+                     if getgenv().esp_loaded == false and Value == true then
+            getgenv().esp_loaded = true
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/espbyskatbr.lua", true))()
+        end
+        getgenv().Visibility = Value
+            end,false)
+            local Toggle = Section.Component("Toggle","Enable Names",function(Value)
+                    if getgenv().esp_loaded == false and Value == true then
+            getgenv().esp_loaded = true
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/espbyskatbr.lua", true))()
+        end
+        getgenv().nameESP = Value
+            end,false)
+            local Toggle = Section.Component("Toggle","Enable Chams",function(Value)
+                    if getgenv().esp_loaded == false and Value == true then
+            getgenv().esp_loaded = true
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/espbyskatbr.lua", true))()
+        end
+        getgenv().cham = Value
+            end,false)
+            local Toggle = Section.Component("Toggle","Team Colors",function(Value)
+                         getgenv().useTeamColor = Value
+            end,false)
+
             local Section = Page.Section("Other")
 
             local Button = Section.Component("Button","Click TP Tool",function()
