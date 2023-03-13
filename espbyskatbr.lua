@@ -96,6 +96,7 @@ local function DrawESP(plr)
                 
 local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
 local hp = humanoid.Health
+hp = math.floor(hp * 10 + 0.5) / 10 -- round to the nearest tenth
 Name.Text = string.format(plr.Name.." ["..tostring(math.floor(Distance*0.28)).."m] [HP: "..hp.."]")
                     
                 local PartCorners = GetPartCorners(plr.Character.HumanoidRootPart)
