@@ -85,9 +85,30 @@ local Toggle = Section.Component("Toggle","Bringer",function(bool)
 local Section = Page.Section("Wand")
 
 local DmgModifier = 15
-                local Slider2 = Section.Component("Slider2","Wand Damage Modifier (For Below)",0,125,false,function(value)
+                local Slider2 = Section.Component("Slider2","Damage Modifier (All below)",0,300,false,function(value)
                     DmgModifier = value
                     end,DmgModifier)
+
+                    local isEnabled = false
+
+                    local Toggle = Section.Component("Toggle","Enable Dmg Manipulator",function(bool)
+                        isEnabled = bool
+
+                        local mt = getrawmetatable(game)
+                        local old = mt.__namecall
+                        setreadonly(mt, false)
+                        mt.__namecall = newcclosure(function(self, ...)
+                            local args = {...}
+                            if getnamecallmethod() == 'FireServer' and self.Name == 'Fire' then
+                                if isEnabled then
+                                    args[5] = DmgModifier
+                                else
+                                    args[5] = 15
+                                end
+                            end
+                            return old(self, unpack(args))
+                        end)
+                                       end,isEnabled)
 
 local Toggle = Section.Component("Toggle","Kill All (Wand)",function(bool)
     _G.WandKillAll = bool
@@ -938,6 +959,42 @@ local Toggle = Section.Component("Toggle","Kill All (Wand)",function(bool)
                                 end
                                     end)
 
+                                    local Section = Page.Section("Teleports")
+
+                                    local Button = Section.Component("Button","Teleport to Red",function()
+                                        if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["berezaa's Tycoon Kit"]["Medium red"].Base.CFrame + Vector3.new(1, 6, 1)
+                                        end
+                                    end)
+                    
+                    
+                                        local Button = Section.Component("Button","Teleport to Green",function()
+                                            if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  game:GetService("Workspace")["berezaa's Tycoon Kit"]["Medium green"].Base.CFrame + Vector3.new(1, 6, 1)
+                                            end
+                                        end)
+                    
+                    
+                                            local Button = Section.Component("Button","Teleport to Yellow",function()
+                                                if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["berezaa's Tycoon Kit"]["Cool yellow"].Base.CFrame + Vector3.new(1, 6, 1)
+                                                end
+                                            end)
+                    
+                    
+                                                local Button = Section.Component("Button","Teleport to Blue",function()
+                                                    if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace")["berezaa's Tycoon Kit"]["Pastel Blue"].Base.CFrame + Vector3.new(1, 6, 1)
+                                                    end
+                                                end)
+                    
+                    
+                                                    local Button = Section.Component("Button","Teleport to For Hire Spawn",function()
+                                                        if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1, 77.1699982, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)                                                        end
+                                                        end)
+
+
                    local Page = Main.Page("Tools","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
                    local Section = Page.Section("Tools")
 
@@ -1168,4 +1225,3 @@ local Button = Section.Component("Button","Antiafk/idle",function()
                     client.Character.Humanoid.Health = 0
                     exit(0)
                        end)
-
