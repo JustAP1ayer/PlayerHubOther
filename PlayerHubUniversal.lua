@@ -478,7 +478,7 @@ end
 
                 local Page = Main.Page("Aim","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
-                
+
                local  TriggerBotEnabled = false
                local TriggerBotTeamCheck = false
                local Delay = 50
@@ -556,6 +556,9 @@ end
                 local con = game:GetService("RunService").Heartbeat:Connect(triggerbot)
 
                 local Section = Page.Section("Assistance")
+
+                                    local Paragraph = Section.Component("Card", "Aim stuff made by argyyy#1355", "modified some bit but he made the most of it")
+
 -- modified some bits of this
                 local AimEnabled = false
 local AimTeamCheck = true
