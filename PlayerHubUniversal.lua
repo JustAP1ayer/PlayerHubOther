@@ -344,6 +344,15 @@ end,18)
             end, false)
             
             local Section = Page.Section("Other")
+            local camer = "Classic"
+            local DropdownCam = Section.Component("Dropdown", "Camera Type", {"Regular (Classic)", "First Person"}, false, function(selectedcamOption, bool)
+                if selectedcamOption == "Regular (Classic)" then
+                    camer = "Classic"
+                elseif selectedOption == "First Person" then
+                    camer = "LockFirstPerson"
+                end
+                game:GetService("Players").LocalPlayer.CameraMode = camer
+            end, false)
 
             local Shifty = Section.Component("Toggle", "Enable ShiftLock in settings", function(bool)
                 game:GetService('Players').LocalPlayer.DevEnableMouseLock = bool
@@ -478,7 +487,7 @@ end
 
                 local Page = Main.Page("Aim","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
-
+                
                local  TriggerBotEnabled = false
                local TriggerBotTeamCheck = false
                local Delay = 50
@@ -556,8 +565,7 @@ end
                 local con = game:GetService("RunService").Heartbeat:Connect(triggerbot)
 
                 local Section = Page.Section("Assistance")
-
-                                    local Paragraph = Section.Component("Card", "Aim stuff made by argyyy#1355", "modified some bit but he made the most of it")
+                local Paragraph = Section.Component("Card", "Aim stuff made by argyyy#1355", "modified bits but he made the most of it")
 
 -- modified some bits of this
                 local AimEnabled = false
