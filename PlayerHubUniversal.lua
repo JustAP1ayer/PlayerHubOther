@@ -84,43 +84,6 @@ local Button = Section.Component("Button","Copy Discord (Support) to clipboard",
                             task.wait(0)
                         end 
                        end,false)
-                       local Toggle = Section.Component("Toggle","AntiKick (2)",function(bool)
-                        _G.antiantikickerkicker = bool;
-                        local players = game:GetService("Players"):GetPlayers()
-                        local localPlayer = game:GetService("Players").LocalPlayer
-                        
-                        while _G.antiantikickerkicker ==  true do
-                            if #players > 1 then
-                                local randomPlayer
-                                repeat
-                                    randomPlayer = players[math.random(#players)]
-                                until randomPlayer ~= localPlayer
-                                game:GetService("ReplicatedStorage").Events.Vote:FireServer(randomPlayer.Name)
-                                game:GetService("ReplicatedStorage").Events.Vote:FireServer(randomPlayer.Name)
-                                end
-                            wait(0)
-                        end 
-                       end,false)
-
-                       local Toggle = Section.Component("Toggle","AntiKick (3)",function(bool)
-                        _G.antikicker = bool;
-                        local players = game:GetService("Players"):GetPlayers()
-                        local localPlayer = game:GetService("Players").LocalPlayer
-                        
-                        while _G.antikicker ==  true do
-                            if #players > 1 then
-                                local randomPlayer
-                                repeat
-                                    randomPlayer = players[math.random(#players)]
-                                until randomPlayer ~= localPlayer
-                                game:GetService("ReplicatedStorage").Events.Vote:FireServer(randomPlayer.Name)
-                                game:GetService("ReplicatedStorage").Events.Vote:FireServer(randomPlayer.Name)
-                                game:GetService("ReplicatedStorage").Events.Vote:FireServer(randomPlayer.Name)
-                                end
-                            task.wait(0)
-                        end 
-                       end,false)
-
                        local Toggle = Section.Component("Toggle","AntiKick 69420",function(bool)
                         _G.antikickesr = bool;
                         local players = game:GetService("Players"):GetPlayers()
@@ -309,7 +272,7 @@ end,18)
 
                local Section = Page.Section("Misc Modifiers")
 
-               local Toggle = Section.Component("Toggle", "Remove Anims1", function(bool)
+               local Toggle = Section.Component("Toggle", "Remove Anims1 (V1)", function(bool)
                 _G.Anims1 = bool
             
                 while _G.Anims1 == true do
@@ -325,7 +288,27 @@ end,18)
                     end
                 end
             end, false)
-            
+            local Toggle = Section.Component("Toggle", "Remove Anims1 (V2)", function(bool)
+                _G.Anims1V2 = bool
+
+                while true do
+                    local localPlayer = game.Players.LocalPlayer
+                    if localPlayer then
+                        local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+                        for _, descendant in ipairs(workspace:GetDescendants()) do
+                            if descendant:IsDescendantOf(character) and descendant.Name == "Animate" then
+                                if _G.Anims1V2 == true then
+                                    descendant.Disabled = true
+                                else
+                                    descendant.Disabled = false 
+                                end 
+                            end
+                        end
+                    end
+                    task.wait(5) 
+                end
+                
+            end, false)
             local Toggle = Section.Component("Toggle", "Remove Anims2 (Blatant + Buggy)", function(bool)
                 _G.Anims2 = bool
             
@@ -884,6 +867,21 @@ end, rgbblue)
                 end
             end
             wait(1) 
+        end
+                if _G.HitBoxExpander == false then
+            for _, player in ipairs(game.Players:GetPlayers()) do
+                local character = player.Character
+                if character then
+                    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+                    if humanoidRootPart then
+                        humanoidRootPart.Size = Vector3.new(2, 2, 1)
+                        humanoidRootPart.Transparency = 1
+                        humanoidRootPart.BrickColor = BrickColor.new("Medium stone grey")
+                        humanoidRootPart.Material = Enum.Material.Plastic
+                        humanoidRootPart.CanCollide = false
+                    end
+                end
+            end
         end
                                end,false)
 
