@@ -29,8 +29,7 @@ local Button = Section.Component("Button","Copy Discord (Support) to clipboard",
     end)
 
     local Button = Section.Component("Button","Press 'LeftAlt' to Minimize GUI",function()
-        -- Code
-        end)
+    end)
 
         local Button = Section.Component("Button","Use Mousescroll to go through pages",function()
             -- Code
@@ -243,20 +242,44 @@ local Button = Section.Component("Button","Copy Discord (Support) to clipboard",
 local Page = Main.Page("Local Player","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
 local Section = Page.Section("Humanoid Modifier")
-
+local walkspeed = tonumber(game.Players.LocalPlayer.Character.Humanoid.WalkSpeed)
 local Slider2 = Section.Component("Slider2","Walkspeed",0,250,false,function(value)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
-end,18)
+    walkspeed = value
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
+end,walkspeed)
 
+local Toggle = Section.Component("Toggle","Loop Walkspeed",function(bool)
+_G.LoopWs = bool
+while _G.LoopWs == true do
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
+task.wait()
+end
+end,false)
+
+local jumppower = tonumber(game.Players.LocalPlayer.Character.Humanoid.JumpPower)
     local Slider2 = Section.Component("Slider2","Jumppower",0,300,false,function(value)
+        jumppower = value
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
-        end,50)
-
+        end,jumppower)
+        local Toggle = Section.Component("Toggle","Loop Jumppower",function(bool)
+            _G.LoopJP = bool
+            while _G.LoopJP == true do
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppower
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppower
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppower
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppower
+            task.wait()
+            end
+            end,false)
+            
         local Slider2 = Section.Component("Slider2","Gravity",0,333,true,function(value)
             game:GetService("Workspace").Gravity = value
             end,196.2)
     
-        local Slider2 = Section.Component("Slider2","Hip Height",2,100,false,function(value)
+        local Slider2 = Section.Component("Slider2","Hip Height",0,100,false,function(value)
             game.Players.LocalPlayer.Character.Humanoid.HipHeight = value
             end,2)
             
