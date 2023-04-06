@@ -251,10 +251,10 @@ end,walkspeed)
 local Toggle = Section.Component("Toggle","Loop Walkspeed",function(bool)
 _G.LoopWs = bool
 while _G.LoopWs == true do
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = walkspeed
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = walkspeed
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = walkspeed
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = walkspeed
 task.wait()
 end
 end,false)
@@ -267,10 +267,10 @@ local jumppower = tonumber(game.Players.LocalPlayer.Character.Humanoid.JumpPower
         local Toggle = Section.Component("Toggle","Loop Jumppower",function(bool)
             _G.LoopJP = bool
             while _G.LoopJP == true do
-            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppower
-            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppower
-            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppower
-            game.Players.LocalPlayer.Character.Humanoid.JumpPower = jumppower
+            game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = jumppower
+            game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = jumppower
+            game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = jumppower
+            game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = jumppower
             task.wait()
             end
             end,false)
