@@ -984,3 +984,9 @@ local Button = Section.Component("Button","Antiafk/idle",function()
                             end
                         end
                     end, false) 
+
+                    local Logs = Main.Logs("Player Join Logs (Name / Display Name)")
+function penisjoingame(player)
+    local log1 = Logs.LogWithButtons(player.Name .. " / " .. player.DisplayName .. " joined the game")
+end
+game:GetService("Players").PlayerAdded:Connect(penisjoingame)
