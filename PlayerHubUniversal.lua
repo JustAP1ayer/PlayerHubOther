@@ -242,7 +242,7 @@ local Button = Section.Component("Button","Copy Discord (Support) to clipboard",
 local Page = Main.Page("Local Player","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
 local Section = Page.Section("Humanoid Modifier")
-local walkspeed = tonumber(game.Players.LocalPlayer.Character.Humanoid.WalkSpeed)
+local walkspeed = 16
 local Slider2 = Section.Component("Slider2","Walkspeed",0,250,false,function(value)
     walkspeed = value
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
@@ -257,7 +257,7 @@ task.wait()
 end
 end,false)
 
-local jumppower = tonumber(game.Players.LocalPlayer.Character.Humanoid.JumpPower)
+local jumppower = 50
     local Slider2 = Section.Component("Slider2","Jumppower",0,300,false,function(value)
         jumppower = value
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
@@ -987,6 +987,6 @@ local Button = Section.Component("Button","Antiafk/idle",function()
 
                     local Logs = Main.Logs("Player Join Logs (Name / Display Name)")
 function penisjoingame(player)
-    local log1 = Logs.LogWithButtons(player.Name .. " / " .. player.DisplayName .. " joined the game")
+    local log1 = Logs.LogWithButtons(player.Name .. " / " .. player.DisplayName)
 end
 game:GetService("Players").PlayerAdded:Connect(penisjoingame)
