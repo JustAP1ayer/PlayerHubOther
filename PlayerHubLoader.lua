@@ -11,7 +11,7 @@ elseif game.PlaceId == 4872321990 then
 wait(1)
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/JustAP1ayer/IslandsPlayerHub/main/IslandsPlayerHub1.6Obfuscated.lua'),true))()
 elseif game.PlaceId == 9992339729 or game.PlaceId == 12496197327 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubParkourNinja.lua",true))() 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubAnswerWinsGame.lua",true))()
 elseif game.PlaceId == 4246487209 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubBossFightingSimulator.lua",true))()
 elseif game.PlaceId == 70005410 then
