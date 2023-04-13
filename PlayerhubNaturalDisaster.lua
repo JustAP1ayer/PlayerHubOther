@@ -39,10 +39,10 @@ end)
 
 local Section = Page.Section("Other")
 
-local earfuckeryspeed
+local earfuckeryspeed = 0.5
 local Slider2 = Section.Component("Slider2","Earrape speed",0.1,2,true,function(value)
     earfuckeryspeed = value
-    end,0.5)
+    end,earfuckeryspeed)
 
 local Toggle = Section.Component("Toggle","(Troll) Earrape everyone",function(bool)
     _G.earfuckery = bool;
