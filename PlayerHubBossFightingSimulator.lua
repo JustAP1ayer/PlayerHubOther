@@ -72,7 +72,7 @@ local arenaBosses = {
     Samurai = "Samurai",
 }
                 local Dropdown = Section.Component("Dropdown","Mob List (Will not choose if it's dead)",{"Noob","Knight","Orc","Wizard","Pirate","Ninja","Undead","IceKing","Zeus","Black Knight","Grim Reaper","Crystal Warlord","Samurai"},false,function(value,bool)
-    selectedboss = game:GetService("Workspace").Arenas[value .. "Arena"].Boss:FindFirstChild(arenaBosses[value])
+selectedboss = game:GetService("Workspace"):WaitForChild("Arenas"):WaitForChild(value .. "Arena"):WaitForChild(arenaBosses[value]):WaitForChild()
                 end,false)
                 
 local Toggle = Section.Component("Toggle", "Enable Mob Farm", function(bool)
