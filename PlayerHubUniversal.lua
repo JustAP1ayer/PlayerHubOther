@@ -1,3 +1,4 @@
+
 getgenv().cham = false
 getgenv().nameESP = false
 getgenv().boxESP = false
@@ -242,7 +243,7 @@ local Button = Section.Component("Button","Copy Discord (Support) to clipboard",
 local Page = Main.Page("Local Player","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
 local Section = Page.Section("Humanoid Modifier")
-local walkspeed = 16
+local walkspeed = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed or 16
 local Slider2 = Section.Component("Slider2","Walkspeed",0,250,false,function(value)
     walkspeed = value
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
@@ -257,7 +258,7 @@ task.wait()
 end
 end,false)
 
-local jumppower = 50
+local jumppower = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower or 50
     local Slider2 = Section.Component("Slider2","Jumppower",0,300,false,function(value)
         jumppower = value
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
@@ -355,7 +356,9 @@ local jumppower = 50
                 end
                 game:GetService("Players").LocalPlayer.CameraMode = camer
             end, false)
-
+             Section.Component("Toggle", "Lock Camera on Humanoid", function()
+                game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+            end)
             local Shifty = Section.Component("Toggle", "Enable ShiftLock in settings", function(bool)
                 game:GetService('Players').LocalPlayer.DevEnableMouseLock = bool
                end,false)
@@ -782,7 +785,20 @@ end, rgbblue)
             
             
             end)
-                
+
+            local Section = Page.Section("Other")
+
+        
+                       local Toggle = Section.Component("Toggle","Very Cancer SpinBot",function(bool)
+                        _G.SpinnyBoy = bool
+                        while _G.SpinnyBoy and task.wait() do
+                            if not game:GetService("Players").LocalPlayer.Character then
+                                game:GetService("Players").LocalPlayer.CharacterAdded:wait()
+                            end
+                            game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+                            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Rotation.X, math.random(0, 180), game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Rotation.Z)
+                        end
+                    end,false)
 
                        local Page = Main.Page("Other","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
                        local Section = Page.Section("ESP")
