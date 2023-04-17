@@ -240,7 +240,13 @@ local Button = Section.Component("Button","Copy Discord (Support) to clipboard",
                                 end)
                 end
 
-local Page = Main.Page("Local Player","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
+local Page = Main.Page("LocalPlayer","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
+
+local Section = Page.Section("Local Player Information")
+                Section.Component("Card", "LocalPlayer DisplayName:", game:GetService("Players").LocalPlayer.DisplayName)
+                        Section.Component("Card", "LocalPlayer Name:", game:GetService("Players").LocalPlayer.Name)
+                        Section.Component("Card", "LocalPlayer UserID:", game:GetService("Players").LocalPlayer.UserId or game:GetService("Players").LocalPlayer.UserID )
+                        Section.Component("Card", "LocalPlayer Account Age:", game:GetService("Players").LocalPlayer.AccountAge)
 
 local Section = Page.Section("Humanoid Modifier")
 local walkspeed = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed or 16
@@ -291,7 +297,13 @@ local jumppower = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").
                end,false)
 
                local Section = Page.Section("Misc Modifiers")
-
+               local Slider2 = Section.Component("Slider2","Min Camera Zoom Distance",0,300,false,function(value)
+                game:GetService("Players").LocalPlayer.CameraMinZoomDistance = value
+                end,game:GetService("Players").LocalPlayer.CameraMinZoomDistance or 0.5)
+        
+            local Slider2 = Section.Component("Slider2","Max Camera Zoom Distance",0,30000,false,function(value)
+                game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = value
+                end,game:GetService("Players").LocalPlayer.CameraMaxZoomDistance or 400)
                local Toggle = Section.Component("Toggle", "Remove Anims1 (V1)", function(bool)
                 _G.Anims1 = bool
             
@@ -356,7 +368,7 @@ local jumppower = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").
                 end
                 game:GetService("Players").LocalPlayer.CameraMode = camer
             end, false)
-             Section.Component("Toggle", "Lock Camera on Humanoid", function()
+             Section.Component("Button", "Lock Camera on Humanoid", function()
                 game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
             end)
             local Shifty = Section.Component("Toggle", "Enable ShiftLock in settings", function(bool)
@@ -801,6 +813,7 @@ end, rgbblue)
                     end,false)
 
                        local Page = Main.Page("Other","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
+                       
                        local Section = Page.Section("ESP")
 
                        local Paragraph = Section.Component("Card", "ESP made by skatbr", "(i modified it a bit)")
@@ -982,7 +995,7 @@ local Button = Section.Component("Button","Antiafk/idle",function()
                                                             game.Lighting.ClockTime = value
                                                         end, game.Lighting.ClockTime )
 
-                                                        local Slider2 = Section.Component("Slider2", "Exposure", 0, 2, true, function(value)
+                                                        local Slider2 = Section.Component("Slider2", "Exposure", 0, 25, true, function(value)
                                                             game.Lighting.ExposureCompensation = value
                                                         end, game.Lighting.ExposureCompensation )
                                                         
