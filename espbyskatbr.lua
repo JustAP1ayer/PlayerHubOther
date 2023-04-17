@@ -85,7 +85,7 @@ local function DrawESP(plr)
                     if getgenv().useTeamColor then
                         Name.Color = plr.TeamColor.Color
                     else
-                        Name.Color = Color3.fromHSV(math.random(0, 360) / 360, math.random(50, 100) / 100, math.random(50, 100) / 100)
+                        Name.Color = Color3.fromHSV(math.clamp(Distance / 5, 0, 125) / 255, 0.75, 1)
                     end
                     Name.Visible = true
                     Name.Font = FontValue
