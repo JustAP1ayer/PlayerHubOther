@@ -33,6 +33,9 @@ end)
 local Page = Main.Page("Main","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
 local Section = Page.Section("Main")
+local Button = Section.Component("Button","Simple Spy (insta win method)",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua"))()
+    end)
 
 local Button = Section.Component("Button","Delete all gates",function()
     game:GetService("Workspace").Gates:Destroy()
