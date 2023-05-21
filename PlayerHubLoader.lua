@@ -4,6 +4,8 @@ if game.PlaceId == 9796685905 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubMML2.lua",true))()
 elseif game.PlaceId == 281489669 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubWizardTycoon2.lua",true))()
+        elseif game.PlaceId == 12376364177 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubMinerMergeTycoon.lua",true))()
     elseif game.PlaceId == 11166344460 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubEasyStudJumpsObby.lua",true))()
 elseif game.PlaceId == 147848991 then
