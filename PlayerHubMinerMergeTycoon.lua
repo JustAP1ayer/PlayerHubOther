@@ -143,28 +143,29 @@ local Section = Page.Section("Important")
                    local Section = Page.Section("ESP")
                    Section.Component("Toggle","Enable Lucky Block ESP",function(bool)
                     _G.LuckyBlock = bool                 
-if _G.LuckyBlock == true and workspace:FindFirstChild("LuckyBlockModel") then
-    local highlight = Instance.new("Highlight")
-        for _, child in ipairs(workspace:FindFirstChild("LuckyBlockModel"):GetChildren()) do
-        if child:IsA("BasePart") then
-            highlight.Parent = child
-            highlight.Name = "PlayerHubHighLight"
-        end
-    end
-elseif not _G.LuckyBlock == true and workspace:FindFirstChild("LuckyBlockModel") and workspace.LuckyBlockModel:FindFirstChild("PlayerHubHighLight") then
-    for _, child in ipairs(workspace:FindFirstChild("LuckyBlockModel"):GetChildren()) do
-        if child:IsA("BasePart") and child:FindFirstChild("PlayerHubHighLight") then
-            child:FindFirstChild("PlayerHubHighLight"):Destroy()
-        end
-    end
-end
-
+                    if _G.LuckyBlock == true and workspace:FindFirstChild("LuckyBlockModel") then
+                        for _, child in ipairs(workspace:FindFirstChild("LuckyBlockModel"):GetChildren()) do
+                            if child:IsA("BasePart") then
+                                local highlight = Instance.new("Highlight")
+                                highlight.Parent = child
+                                highlight.Name = "PlayerHubHighLight"
+                            end
+                        end
+                    elseif _G.LuckyBlock == false then
+                        if workspace:FindFirstChild("LuckyBlockModel") then
+                            for _, child in ipairs(workspace:FindFirstChild("LuckyBlockModel"):GetChildren()) do
+                                if child:IsA("BasePart") and child:FindFirstChild("PlayerHubHighLight") then
+                                    child:FindFirstChild("PlayerHubHighLight"):Destroy()
+                                end
+                            end
+                        end
+                    end
                    end,false)
-                   Section.Component("Toggle","Delete Game LuckyBlock Highlights",function(bool)
+                   Section.Component("Button","Delete Game LuckyBlock Highlights",function()
                     if workspace.LuckyBlockModel:FindFirstChild("Highlight") then
                     workspace.LuckyBlockModel:FindFirstChild("Highlight"):Destroy()
                     end
-                   end,false)
+                   end)
                    workspace.LuckyBlockModel.ChildAdded:Connect(function(child)
                     if _G.LuckyBlock == true and child:IsA("BasePart") then
                         local highlight = Instance.new("Highlight")
