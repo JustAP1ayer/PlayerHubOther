@@ -122,7 +122,6 @@ local Section = Page.Section("Important")
                         elseif SelectedMinorAmount == "24" then
                             SelectedMinorAmountName = "24xMiner"
                        end
-                       game:GetService("Players").LocalPlayer.CameraMode = camer
                    end, false)
                    Section.Component("Toggle","Auto Buy Miner",function(bool)
                     _G.AutoBuyMinor = bool
