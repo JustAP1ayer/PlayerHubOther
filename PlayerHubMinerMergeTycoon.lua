@@ -2,7 +2,6 @@
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 local LocalPlayer = Players.LocalPlayer
--- ignore how messy it is
 getgenv().cham = false
 getgenv().nameESP = false
 getgenv().boxESP = false
@@ -50,7 +49,6 @@ local Section = Page.Section("Important")
                 local Page = Main.Page("Game","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
                 local Section = Page.Section("Tycoon Farm")
                 Section.Component("Button","Lewmr pls return 4 sniper :pray: <3",function()
-                    -- Code
                     end)
                 Section.Component("Toggle","Auto Melt",function(bool)
                     _G.AutoMelt = bool
@@ -66,11 +64,7 @@ local Section = Page.Section("Important")
                     _G.AutoCollectores = bool
                     while _G.AutoCollectores == true and wait(0.025) do
                     local player = game:GetService("Players").LocalPlayer
-
-                    -- Get the value of TycoonValue
                     local tycoonValue = player:WaitForChild("TycoonValue").Value
-                    
-                    -- Access the folder based on the value of TycoonValue
                     local folderName = tostring(tycoonValue)
                     local tycoonFolder = workspace:FindFirstChild(folderName)
                     local oreFolder = tycoonFolder and tycoonFolder:FindFirstChild("OreFolder")
@@ -689,7 +683,7 @@ local Section = Page.Section("Settings")
 _G.LuckyBlockNotifier = true
 Section.Component("Toggle", "Enable Lucky Block Notifier", function(bool)
     _G.LuckyBlockNotifier = bool
-end, false)
+end, _G.LuckyBlockNotifier)
 
 _G.JoinLogger = true
  Section.Component("Button","Antiafk/idle",function()
@@ -777,4 +771,5 @@ _G.JoinLogger = true
                         end
                         end)
                         
+
 
