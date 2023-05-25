@@ -141,10 +141,10 @@ local Button = Section.Component("Button","Redeem all Codes",function()
 local playerHead = game.Players.LocalPlayer.Character.Head
                             for i, v in pairs(game:GetService("Workspace").EventButtonsHolder["Geode Button"]:GetDescendants()) do
                             if v.name == "TouchInterest" and v.Parent then
-                              firetouchinterest(playerHead, v.Parent, 0)
+                              firetouchinterest(v.Parent, playerHead, 0)
                             wait(0.25)
-                             firetouchinterest(playerHead, v.Parent, 1)
-                        break;
+                            firetouchinterest(v.Parent, playerHead, 1)
+                            break;
                         end end end
       end,false)
 
@@ -156,9 +156,9 @@ local playerHead = game.Players.LocalPlayer.Character.Head
 local playerHead = game.Players.LocalPlayer.Character.Head
                             for i, v in pairs(game:GetService("Workspace").GeodeButtons:GetDescendants()) do
                             if v.name == "TouchInterest" and v.Parent then
-                              firetouchinterest(playerHead, v.Parent, 0)
-                              wait(0.5)
-                             firetouchinterest(playerHead, v.Parent, 1)
+                                firetouchinterest(v.Parent, playerHead, 0)
+                                wait(0.5)
+                                firetouchinterest(v.Parent, playerHead, 1)
                         break;
                         end end end
       end,false)
@@ -171,9 +171,9 @@ local playerHead = game.Players.LocalPlayer.Character.Head
         local playerHead = game.Players.LocalPlayer.Character.Head
                             for i, v in pairs(game:GetService("Workspace").Areas.Grasslands:GetDescendants()) do
                             if v.name == "TouchInterest" and v.Parent then
-                              firetouchinterest(playerHead, v.Parent, 0)
-                              wait(0.5)
-                              firetouchinterest(playerHead, v.Parent, 1)
+                                firetouchinterest(v.Parent, playerHead, 0)
+                                wait(0.5)
+                                firetouchinterest(v.Parent, playerHead, 1)
                         break;
                         end end end
       end,false)
@@ -186,9 +186,9 @@ local playerHead = game.Players.LocalPlayer.Character.Head
 local playerHead = game.Players.LocalPlayer.Character.Head
                             for i, v in pairs(game:GetService("Workspace").EventButtonsHolder:GetDescendants()) do
                             if v.name == "TouchInterest" and v.Parent then
-                              firetouchinterest(playerHead, v.Parent, 0)
-                            wait(0.5)
-                             firetouchinterest(playerHead, v.Parent, 1)
+                                firetouchinterest(v.Parent, playerHead, 0)
+                                wait(0.5)
+                                firetouchinterest(v.Parent, playerHead, 1)
                         break;
                         end end end
       end,false)
