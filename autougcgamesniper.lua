@@ -9,6 +9,9 @@ local b = w:CreateFolder("!    ! redblue.#4424") -- Creates the folder(U will pu
 b:Button("Infinite Yield",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
  end)
+ b:Button("My Universal Script",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubUniversal.lua",true))()
+ end)
 local limid
 b:Box("Input Limited ID","string",function(value) -- "number" or "string"
    limid = value
