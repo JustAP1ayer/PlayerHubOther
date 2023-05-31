@@ -44,11 +44,12 @@ b:Button("TP to game ID",function()
    game:GetService("TeleportService"):Teleport(gameid, LocalPlayer)
 
 end)
+wait(2)
 local abc = w:CreateFolder("Subplaces") -- Creates the folder(U will put here your buttons,etc)
 local pages = game:GetService("AssetService"):GetGamePlacesAsync()
 
-while true do
-   for _, place in pairs(pages:GetCurrentPage()) do
+while true and task.wait(0.5) do
+    for _, place in pairs(pages:GetCurrentPage()) do
       abc:Button(tostring(place.Name) .. " (" .. tostring(place.PlaceId) .. ")",function()
          game:GetService("TeleportService"):Teleport(place.PlaceId, LocalPlayer)
       end)
