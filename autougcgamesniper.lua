@@ -44,7 +44,6 @@ b:Button("TP to game ID",function()
    game:GetService("TeleportService"):Teleport(gameid, LocalPlayer)
 
 end)
-wait(2)
 local abc = w:CreateFolder("Subplaces") -- Creates the folder(U will put here your buttons,etc)
 local pages = game:GetService("AssetService"):GetGamePlacesAsync()
 
