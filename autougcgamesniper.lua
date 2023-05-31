@@ -1,5 +1,6 @@
 --[[ open sourced now cause you retards think everything obfuscated is a beam link 
 hate was annoying
+https://discord.gg/nXERxPYUyZ
 ]]
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))() 
 local w = library:CreateWindow("PlayerHub UGC") -- Creates the window
@@ -42,7 +43,7 @@ local pages = game:GetService("AssetService"):GetGamePlacesAsync()
 
 while true do
    for _, place in pairs(pages:GetCurrentPage()) do
-      b:Button("TP: " .. tostring(place.Name) .. " (" .. tostring(place.PlaceId) .. ")",function()
+      abc:Button("TP: " .. tostring(place.Name) .. " (" .. tostring(place.PlaceId) .. ")",function()
          game:GetService("TeleportService"):Teleport(place.PlaceId, LocalPlayer)
       end)
    end
