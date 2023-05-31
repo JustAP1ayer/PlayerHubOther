@@ -6,6 +6,9 @@ local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloo
 local w = library:CreateWindow("PlayerHub UGC") -- Creates the window
 
 local b = w:CreateFolder("!    ! redblue.#4424") -- Creates the folder(U will put here your buttons,etc)
+b:Button("Infinite Yield",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+ end)
 local limid
 b:Box("Input Limited ID","string",function(value) -- "number" or "string"
    limid = value
@@ -43,7 +46,7 @@ local pages = game:GetService("AssetService"):GetGamePlacesAsync()
 
 while true do
    for _, place in pairs(pages:GetCurrentPage()) do
-      abc:Button("TP: " .. tostring(place.Name) .. " (" .. tostring(place.PlaceId) .. ")",function()
+      abc:Button(tostring(place.Name) .. " (" .. tostring(place.PlaceId) .. ")",function()
          game:GetService("TeleportService"):Teleport(place.PlaceId, LocalPlayer)
       end)
    end
