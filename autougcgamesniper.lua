@@ -18,10 +18,10 @@ local limid = 13596170554
 b:Box("Input Limited ID","string",function(value) -- "number" or "string"
    limid = value
 end)
-b:Button("Print Limited Information",function()
+b:Button("Print Limited Info",function()
     print("Asset ID: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).AssetId .. " \n" .. "Name: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Name .. " \n" .. "Description: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Description )
 end)
-b:Button("Copy Limited Information",function()
+b:Button("Copy Limited Info",function()
     setclipboard("Asset ID: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).AssetId .. " \n" .. "Name: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Name .. " \n" .. "Description: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Description )
 end)
 local updspeed = 0
