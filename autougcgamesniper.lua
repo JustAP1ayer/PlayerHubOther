@@ -19,10 +19,10 @@ b:Box("Input Limited ID","string",function(value) -- "number" or "string"
    limid = value
 end)
 b:Button("Print Limited Info",function()
-    print("Asset ID: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).AssetId .. " \n" .. "Name: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Name .. " \n" .. "Description: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Description .. " \n Use This to Buy It!  \n   game:GetService('MarketplaceService'):PromptPurchase(game.Players.LocalPlayer, " .. limid)
+    print("Asset ID: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).AssetId .. " \n" .. "Name: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Name .. " \n" .. "Description: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Description .. " \n Use This to Buy It!  \n   game:GetService('MarketplaceService'):PromptPurchase(game.Players.LocalPlayer, " .. limid .. ")")
 end)
 b:Button("Copy Limited Info",function()
-   setclipboard("Asset ID: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).AssetId .. " \n" .. "Name: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Name .. " \n" .. "Description: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Description .. " \n Use This to Buy It!  \n   game:GetService('MarketplaceService'):PromptPurchase(game.Players.LocalPlayer, " .. limid)
+   setclipboard("Asset ID: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).AssetId .. " \n" .. "Name: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Name .. " \n" .. "Description: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Description .. " \n Use This to Buy It!  \n   game:GetService('MarketplaceService'):PromptPurchase(game.Players.LocalPlayer, " .. limid .. ")")
 end)
 local updspeed = 0
 b:Slider("Update Speed",{
