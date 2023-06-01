@@ -14,15 +14,15 @@ t:Button("Infinite Yield",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubUniversal.lua",true))()
  end)
  local b = w:CreateFolder("P|ayer#6812") -- Creates the folder(U will put here your buttons,etc)
-local limid = 13596170554
+local limid 
 b:Box("Input Limited ID","string",function(value) -- "number" or "string"
    limid = value
 end)
 b:Button("Print Limited Info",function()
-    print("Asset ID: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).AssetId .. " \n" .. "Name: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Name .. " \n" .. "Description: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Description )
+    print("Asset ID: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).AssetId .. " \n" .. "Name: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Name .. " \n" .. "Description: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Description .. " \n Use This to Buy It!  \n   game:GetService('MarketplaceService'):PromptPurchase(game.Players.LocalPlayer, " .. limid)
 end)
 b:Button("Copy Limited Info",function()
-    setclipboard("Asset ID: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).AssetId .. " \n" .. "Name: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Name .. " \n" .. "Description: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Description )
+   setclipboard("Asset ID: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).AssetId .. " \n" .. "Name: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Name .. " \n" .. "Description: " ..  game:GetService("MarketplaceService"):GetProductInfo(limid).Description .. " \n Use This to Buy It!  \n   game:GetService('MarketplaceService'):PromptPurchase(game.Players.LocalPlayer, " .. limid)
 end)
 local updspeed = 0
 b:Slider("Update Speed",{
