@@ -1,6 +1,6 @@
 if game.PlaceId == 9796685905 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubSuperHeroRaceClicker.lua",true))()
-    elseif game.PlaceId == 115917693 or 4562879976 or 4534813581 then
+    elseif game.PlaceId == 115917693 or game.PlaceId == 4562879976 or game.PlaceId ==  4534813581 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubMML2.lua",true))()
 elseif game.PlaceId == 281489669 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubWizardTycoon2.lua",true))()
