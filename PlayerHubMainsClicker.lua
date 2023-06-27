@@ -70,13 +70,32 @@ Section.Component("Button", "Webhooks", function()
     end)
 
     b:Toggle("^ Enable Points Webhook ^", function(bool)
+        function formatNumber(value)
+            local suffixes = {
+                B = 1000000000, -- billion
+                M = 1000000   -- million
+            }
+        
+            local numberString, suffix = string.match(value, "([%d.]+)(%a)")
+            local multiplier = suffixes[suffix]
+        
+            if numberString and multiplier then
+                local number = tonumber(numberString) * multiplier
+                return string.format("%0.0f", number)
+            else
+                return value
+            end
+        end
+        
         PointsWebhook = bool
+        
         coroutine.wrap(function()
             local httpService = game:GetService("HttpService")
             local request = (syn and syn.request) or request or (http and http.request) or http_request
-            local LastPointsAmount = game:GetService("Players").LocalPlayer.leaderstats.Points.Value
+            local LastPointsAmount = formatNumber(game:GetService("Players").LocalPlayer.leaderstats.Points.Value)
+        
             while PointsWebhook == true do
-                local NewPoints = game:GetService("Players").LocalPlayer.leaderstats.Points.Value
+                local NewPoints = formatNumber(game:GetService("Players").LocalPlayer.leaderstats.Points.Value)
                 request({
                     Url = webhookURL1,
                     Method = "POST",
@@ -89,10 +108,9 @@ Section.Component("Button", "Webhooks", function()
                             title = "|| " .. game.Players.LocalPlayer.Name .. "  || 's Points Update! " ..
                                 os.date("%I:%M:%S %p "),
                             description = "Total Points Amount: " ..
-                                game:GetService("Players").LocalPlayer.leaderstats.Points.Value .. " Points",
+                            formatNumber(game:GetService("Players").LocalPlayer.leaderstats.Points.Value) .. " Points",
                             color = 0x81ff57,
                             fields = {{
-
                                 name = "Updated amount made",
                                 value = "Made " .. tostring(NewPoints - LastPointsAmount) .. " Points ",
                                 inline = true
@@ -100,10 +118,12 @@ Section.Component("Button", "Webhooks", function()
                         }}
                     })
                 })
+        
                 LastPointsAmount = NewPoints
                 task.wait(updatespeed)
             end
         end)()
+        
     end)
     local WebhookURL3
     b:Box("Rebirth Webhook", "string", function(value5) -- "number" or "string"
@@ -147,6 +167,50 @@ Section.Component("Button", "Webhooks", function()
         end)()
     end)
 end)
+local Section = Page.Section("Mouse")
+
+Section.Component("Card", "Dont talk or click or it'll break", "V2 is better but v1 can work")
+
+_G.AutoClickType = "V2 (Better)"
+local Dropdown = Section.Component("Dropdown", "Auto Click Type", {"V1", "V2 (Better)"}, false, function(death, bool)
+    _G.AutoClickType = tostring(death)
+end, _G.AutoClickType)
+local AutoClickSpeed = 1.2
+Section.Component("Slider2", "Auto Click and Hold Speed / Interval", 0.4, 10, true, function(value)
+    AutoClickSpeed = value
+end, AutoClickSpeed)
+Section.Component("Button", "Disable Autoclick", function()
+    _G.AutoClick = false
+end)
+Section.Component("Toggle", "Auto Click", function(troo)
+    _G.AutoClick = troo
+    while task.wait(AutoClickSpeed) and _G.AutoClick == true do
+        if _G.AutoClickType == "V2 (Better)" then
+            game:GetService("VirtualInputManager"):SendMouseButtonEvent(0, 0, 0, true, game, 1)
+            game:GetService("VirtualInputManager"):SendMouseButtonEvent(0, 0, 0, false, game, 1)
+        elseif _G.AutoClickType == "V1" then
+            mouse1click()
+        end
+    end
+end, false)
+local AutoHoldTime = 8
+Section.Component("Slider2", "Auto Hold Time", 0.5, 30, true, function(value)
+    AutoHoldTime = value
+end, AutoHoldTime)
+Section.Component("Toggle", "Auto Hold mouse click", function(bool)
+    _G.AutoHold = bool
+    while wait(AutoClickSpeed) and _G.AutoHold == true do
+        if _G.AutoClickType == "V2 (Better)" then
+            game:GetService("VirtualInputManager"):SendMouseButtonEvent(0, 0, 0, true, nil, 0)
+            wait(AutoHoldTime)
+            game:GetService("VirtualInputManager"):SendMouseButtonEvent(0, 0, 0, false, nil, 0)
+        elseif _G.AutoClickType == "V1" then
+            mouse1press()
+            wait(AutoHoldTime)
+            mouse1release()
+        end
+    end
+end, false)
 local Section = Page.Section("Misc Scripts")
 
 Section.Component("Button", "Owl Hub", function()
@@ -175,8 +239,8 @@ Section.Component("Slider2", "Amount Per Click", 0, 30, false, function(value)
     acamount = value
 end, acamount)
 Section.Component("Toggle", "Enable Auto click", function(bool)
-    _G.AutoClick = bool
-    while _G.AutoClick and task.wait(acamountspeed) do
+    _G.AutoClick55 = bool
+    while _G.AutoClick55 and task.wait(acamountspeed) do
         task.spawn(function()
             for i = 1, tonumber(acamount) do
 
