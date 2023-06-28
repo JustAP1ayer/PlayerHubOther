@@ -12,6 +12,9 @@ elseif game.PlaceId == 281489669 then
 elseif game.PlaceId == 12376364177 then
     loadstring(game:HttpGet(
         "https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubMinerMergeTycoon.lua", true))()
+elseif game.PlaceId == 1696916806 then
+loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubBaseRaiders.lua", true))()
 elseif game.PlaceId == 11166344460 then
     loadstring(game:HttpGet(
         "https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubEasyStudJumpsObby.lua", true))()
