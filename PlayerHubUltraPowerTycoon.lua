@@ -72,7 +72,7 @@ Section.Component("Button", "Support us - Cashapp - $JustAPlayer", function()
 end)
 local lptycoon
 spawn(function()
-    while lptycoon == nil and wait(1) do
+    while  wait(1) do
         for _, tycoon in pairs(workspace.TycoonDirectory:GetChildren()) do
             if tycoon:IsA("Model") and string.find(tycoon.Name, game:GetService("Players").LocalPlayer.Name) then
                 lptycoon = tycoon
@@ -460,7 +460,8 @@ workspace.Debris.ChildAdded:Connect(function(child)
     if _G.CrateLogNot == true and child.Name == "Crate" then
         Logs.LogWithButtons("A Crate has Spawned!").Button("Teleport to Crate Target", function()
             if child and child:FindFirstChild("CrateTarget") and game.Players.LocalPlayer.Character then
-                game.Players.LocalPlayer.Character:MoveTo(child.CrateTarget.CFrame.Position)
+                cratetargetcframe = child.CrateTarget.CFrame.Position
+                game.Players.LocalPlayer.Character:MoveTo(cratetargetcframe)
             end
         end)
     end
@@ -1224,4 +1225,6 @@ Section.Component("Toggle", "Moonknight typa shit (Visual)", function(bool)
         end
     end
 end, false)
+
+
 
