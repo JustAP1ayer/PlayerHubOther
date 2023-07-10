@@ -77,36 +77,37 @@ local Toggle = Section.Component("Toggle", "Farm All Buttons in Current Area", f
     getgenv().CurrentButtoinFarm = bool;
     while getgenv().CurrentButtoinFarm == true do
         if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Head") then
-            task.wait(farmspeed)
+
             for i, fol in pairs(game:GetService("Workspace").Areas:GetChildren()) do
                 if fol:IsA("Folder") and fol:FindFirstChild("Buttons") then
                     for i, v in pairs(fol.Buttons:GetDescendants()) do
-                        if v.name == "TouchInterest" and v.Parent then
+                        if v.Name == "TouchInterest" and v.Parent then
                             if game.Players.LocalPlayer.Character and
-                                game.Players.LocalPlayer.Character:FindFirstChild("Head") then
-                                firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 0)
+                                game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
                                 task.wait(touchfarmspeed)
-                                firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 1)
+                                firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
                             end
                         end
                     end
                 end
             end
         end
+            task.wait(farmspeed)
     end
 end, false)
 local Toggle = Section.Component("Toggle", "Autofarm Multipler (Shit one)", function(bool)
     getgenv().CheapMultiplerFarm = bool;
     while getgenv().CheapMultiplerFarm == true  do
-        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Head") then
+        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
             task.wait(farmspeed)
             for i, v in pairs(game:GetService("Workspace").EventButtonsHolder["Geode Button"]:GetDescendants()) do
                 if v.name == "TouchInterest" and v.Parent then
                     if game.Players.LocalPlayer.Character and
                         game.Players.LocalPlayer.Character:FindFirstChild("Head")  then
-                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 0)
+                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
                         task.wait(touchfarmspeed)
-                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 1)
+                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
                     end
                 end
             end
@@ -117,15 +118,15 @@ end, false)
 local Toggle = Section.Component("Toggle", "All Geode Buttons Farm ", function(bool)
     getgenv().GeodeButtonsFarm = bool;
     while getgenv().GeodeButtonsFarm == true do
-        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Head") then
+        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
             task.wait(farmspeed)
             for i, v in pairs(game:GetService("Workspace").GeodeButtons:GetDescendants()) do
                 if v.name == "TouchInterest" and v.Parent then
                     if game.Players.LocalPlayer.Character and
                         game.Players.LocalPlayer.Character:FindFirstChild("Head") then
-                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 0)
+                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
                         task.wait(touchfarmspeed)
-                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 1)
+                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
                     end
                 end
             end
@@ -136,15 +137,15 @@ end, false)
 local Toggle = Section.Component("Toggle", "All GrassLands Buttons Farm (L)", function(bool)
     getgenv().GrassLandsButtonsFarm = bool;
     while getgenv().GrassLandsButtonsFarm == true do
-        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Head") and game:GetService("Workspace").Areas:FindFirstChild("Grasslands") then
+        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game:GetService("Workspace").Areas:FindFirstChild("Grasslands") then
             task.wait(farmspeed)
             for i, v in pairs(game:GetService("Workspace").Areas.Grasslands.Buttons:GetDescendants()) do
                 if v.name == "TouchInterest" and v.Parent and game:GetService("Workspace").Areas:FindFirstChild("Grasslands") then
                     if game.Players.LocalPlayer.Character and
                         game.Players.LocalPlayer.Character:FindFirstChild("Head")  and game:GetService("Workspace").Areas:FindFirstChild("Grasslands") then
-                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 0)
+                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
                         task.wait(touchfarmspeed)
-                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 1)
+                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
                     end
                 end
             end
@@ -161,10 +162,10 @@ local Toggle = Section.Component("Toggle", "All Event Buttons Farm ", function(b
             for i, v in pairs(game:GetService("Workspace").EventButtonsHolder:GetDescendants()) do
                 if v.name == "TouchInterest" and v.Parent then
                     if game.Players.LocalPlayer.Character and
-                        game.Players.LocalPlayer.Character:FindFirstChild("Head") then
-                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 0)
+                        game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 0)
                         task.wait(touchfarmspeed)
-                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.Head, 1)
+                        firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
                     end
                 end
             end
