@@ -6,7 +6,7 @@ if game:GetService("Players").LocalPlayer.UserId == 3740846202 or game:GetServic
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(unpack(args))
-elseif game:GetService("Players").LocalPlayer.UserId == 3740846202 or game:GetService("Players").LocalPlayer.UserId == 4597476546 then
+elseif game:GetService("Players").LocalPlayer.UserId == 1507671882 then
  args = {
     [1] = "mreow~ .v.",
     [2] = "All"
