@@ -89,6 +89,7 @@ local Toggle = Section.Component("Toggle", "Farm All Buttons in Current Area", f
                                 firetouchinterest(v.Parent, game.Players.LocalPlayer.Character.HumanoidRootPart, 1)
                             end
                         end
+                            task.wait(0.005)
                     end
                 end
             end
