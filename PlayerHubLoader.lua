@@ -1,3 +1,4 @@
+-- im retarded
 if game.PlaceId == 9796685905 then
     loadstring(game:HttpGet(
         "https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubSuperHeroRaceClicker.lua", true))()
@@ -11,6 +12,9 @@ elseif game.PlaceId == 13455598887 then
 elseif game.PlaceId == 281489669 then
     loadstring(game:HttpGet(
         "https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubWizardTycoon2.lua", true))()
+    elseif game.PlaceId == 13959063215 then
+    loadstring(game:HttpGet(
+        "https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubMineBlockTycoon.lua", true))()
 elseif game.PlaceId == 12376364177 then
     loadstring(game:HttpGet(
         "https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubMinerMergeTycoon.lua", true))()
