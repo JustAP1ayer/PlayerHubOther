@@ -80,6 +80,8 @@ end)
 local Page = Main.Page("Main", "3926305904", Vector2.new(924, 204), Vector2.new(36, 36))
 
 local Section = Page.Section("Main")
+Section.Component("Card", "Warning!!! This Game will Teleport", "You to a new server if AFK")
+
 local lptycoon
 for i, v in pairs(workspace.Game.Tycoons:GetChildren()) do
     if v:IsA("Model") and v:FindFirstChild("__Spawn") and v:FindFirstChild("__Spawn"):FindFirstChild("Attachment") and
@@ -118,6 +120,7 @@ Section.Component("Toggle", "Auto Spin ", function(bool)
 
     end
 end, false)
+
 Section.Component("Toggle", "Auto Collect Free Drops ", function(bool)
     _G.AutoCOllectFreeDroppers = bool
     while task.wait(0.5) and _G.AutoCOllectFreeDroppers do
@@ -130,9 +133,13 @@ Section.Component("Toggle", "Auto Collect Free Drops ", function(bool)
         end
     end
 end, false)
+local autocoolectballsspeed = 0.1
+Section.Component("Slider2", "Auto Collect Balls Speed", 0, 5, true, function(value)
+    autocoolectballsspeed = value
+end, autocoolectballsspeed)
 Section.Component("Toggle", "Auto Collect Balls ", function(bool)
     _G.AutoCollectBalls = bool
-    while _G.AutoCollectBalls and task.wait(0.1) do
+    while _G.AutoCollectBalls and task.wait(autocoolectballsspeed) do
         for i, v in pairs(lptycoon:GetDescendants()) do
             if v.Name == "Drop" and game.Players.LocalPlayer.Character and
                 game.Players.LocalPlayer.Character:FindFirstChild("Head") then
@@ -143,9 +150,13 @@ Section.Component("Toggle", "Auto Collect Balls ", function(bool)
         end
     end
 end, false)
+local autobuyboneratespeds = 0.1
+Section.Component("Slider2", "Auto Buy Bone Rates Speed", 0, 5, true, function(value)
+    autobuyboneratespeds = value
+end, autobuyboneratespeds)
 Section.Component("Toggle", "Auto Buy Bone Rates ", function(bool)
     _G.AutoBuyBoneRate = bool
-    while _G.AutoBuyBoneRate and task.wait(0.1) do
+    while _G.AutoBuyBoneRate and task.wait(autobuyboneratespeds) do
         local args = {
             [1] = "BuyRate"
         }
@@ -155,9 +166,13 @@ Section.Component("Toggle", "Auto Buy Bone Rates ", function(bool)
 
     end
 end, false)
+local autobuydroper = 0.1
+Section.Component("Slider2", "Auto Buy Droppers Speed", 0, 5, true, function(value)
+    autobuydroper = value
+end, autobuydroper)
 Section.Component("Toggle", "Auto Buy Droppers ", function(bool)
     _G.AutoBuyDropper = bool
-    while _G.AutoBuyDropper and task.wait(0.1) do
+    while _G.AutoBuyDropper and task.wait(autobuydroper) do
         local args = {
             [1] = "BuyDropper"
         }
@@ -166,9 +181,13 @@ Section.Component("Toggle", "Auto Buy Droppers ", function(bool)
             unpack(args))
     end
 end, false)
+local autodepspeed = 0.1
+Section.Component("Slider2", "Auto Deposit Drops Speed", 0, 5, true, function(value)
+    autodepspeed = value
+end, autodepspeed)
 Section.Component("Toggle", "Auto Deposit Drops ", function(bool)
     _G.AutoDepDrops = bool
-    while _G.AutoDepDrops and task.wait(0.1) do
+    while _G.AutoDepDrops and task.wait(autodepspeed) do
         local args = {
             [1] = "DepositDrops"
         }
@@ -177,10 +196,14 @@ Section.Component("Toggle", "Auto Deposit Drops ", function(bool)
             unpack(args))
     end
 end, false)
+local autocompleteobbypsed = 0.1
+Section.Component("Slider2", "Auto Complete Obby Speed", 0, 5, true, function(value)
+    autocompleteobbypsed = value
+end, autocompleteobbypsed)
 Section.Component("Toggle", "Auto Merge ", function(bool)
     _G.Automerge = bool
 
-    while task.wait(0.1) and _G.Automerge do
+    while task.wait(autocompleteobbypsed) and _G.Automerge do
 
         local args = {
             [1] = "MergeDropper"
@@ -190,6 +213,10 @@ Section.Component("Toggle", "Auto Merge ", function(bool)
             unpack(args))
     end
 end, false)
+local autocompletespeedobby = 123
+Section.Component("Slider2", "Auto Complete Obby Speed", 115, 140, true, function(value)
+    autocompletespeedobby = value
+end, autocompletespeedobby)
 Section.Component("Toggle", "Auto Complete Obby ", function(bool)
     _G.AutoObby = bool
     while task.wait() and _G.AutoObby do
@@ -197,7 +224,7 @@ Section.Component("Toggle", "Auto Complete Obby ", function(bool)
             firetouchinterest(workspace.Game.Obby.Finish.Trigger, game.Players.LocalPlayer.Character.Head, 0)
             task.wait(0.1)
             firetouchinterest(workspace.Game.Obby.Finish.Trigger, game.Players.LocalPlayer.Character.Head, 1)
-            task.wait(125)
+            task.wait(autocompletespeedobby)
         end
     end
 end, false)
@@ -1270,4 +1297,5 @@ function penisjoingame(player)
     end
 end
 game:GetService("Players").PlayerAdded:Connect(penisjoingame)
+
 
