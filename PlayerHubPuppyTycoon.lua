@@ -136,7 +136,7 @@ Section.Component("Toggle", "Auto Collect Balls ", function(bool)
         for i, v in pairs(lptycoon:GetDescendants()) do
             if v.Name == "Drop" and game.Players.LocalPlayer.Character and
                 game.Players.LocalPlayer.Character:FindFirstChild("Head") then
-                v.Transparency = 0
+                v.Transparency = 1
                 v.CanCollide = false
                 v.CFrame = game.Players.LocalPlayer.Character.Head.CFrame
             end
@@ -1270,3 +1270,4 @@ function penisjoingame(player)
     end
 end
 game:GetService("Players").PlayerAdded:Connect(penisjoingame)
+
