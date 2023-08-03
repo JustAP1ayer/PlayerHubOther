@@ -196,14 +196,14 @@ Section.Component("Toggle", "Auto Deposit Drops ", function(bool)
             unpack(args))
     end
 end, false)
-local autocompleteobbypsed = 0.1
-Section.Component("Slider2", "Auto Complete Obby Speed", 0, 5, true, function(value)
-    autocompleteobbypsed = value
-end, autocompleteobbypsed)
+local autoMergepsed = 0.1
+Section.Component("Slider2", "Auto Merge Speed", 0, 5, true, function(value)
+    autoMergepsed = value
+end, autoMergepsed)
 Section.Component("Toggle", "Auto Merge ", function(bool)
     _G.Automerge = bool
 
-    while task.wait(autocompleteobbypsed) and _G.Automerge do
+    while task.wait(autoMergepsed) and _G.Automerge do
 
         local args = {
             [1] = "MergeDropper"
@@ -1297,5 +1297,4 @@ function penisjoingame(player)
     end
 end
 game:GetService("Players").PlayerAdded:Connect(penisjoingame)
-
 
