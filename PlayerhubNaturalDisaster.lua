@@ -27,11 +27,10 @@ local Page = Main.Page("Main","3926305904",Vector2.new(924, 204),Vector2.new(36,
 local Section = Page.Section("AutoMation")
 
 local Toggle = Section.Component("Toggle","Auto Farm Wins",function(bool)
-  -- Code
-  
+
     _G.autowinfarm = bool;
     while wait(.1) do
-        if _G.autowinfarm == true then
+        if _G.autowinfarm == true and  game.Players.LocalPlayer.Character and  game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-236, 180, 360, 1, 0, 0, 0, 1, 0, 0, 0, 1)
         end
 end
@@ -39,19 +38,17 @@ end)
 
 local Section = Page.Section("Other")
 
-local earfuckeryspeed = 0.5
+local earfuckeryspeed
 local Slider2 = Section.Component("Slider2","Earrape speed",0.1,2,true,function(value)
     earfuckeryspeed = value
-    end,earfuckeryspeed)
+    end,0.5)
 
 local Toggle = Section.Component("Toggle","(Troll) Earrape everyone",function(bool)
     _G.earfuckery = bool;
-while task.wait(earfuckeryspeed) do
-        if _G.earfuckery == true then
+while _G.earfuckery == true and  task.wait(earfuckeryspeed) do
 for _, sound in next, workspace:GetDescendants() do
    if sound:IsA("Sound") then
        sound:Play()
-   end
 end
 
 end end
@@ -171,4 +168,3 @@ local Button = Section.Component("Button","Game Island",function()
             -- Code
             game:GetService("TeleportService"):Teleport(3696971654, LocalPlayer)    
             end)
-
