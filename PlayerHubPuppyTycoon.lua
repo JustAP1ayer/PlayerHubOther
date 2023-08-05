@@ -254,6 +254,27 @@ Section.Component("Toggle", "Op Asf Autofarm", function(bool)
 
     end
 end, false)
+Section.Component("Toggle", "Op Asf Autofarm v2", function(bool)
+    _G.AutoFarmOP2 = bool
+    while _G.AutoFarmOP2 and task.wait() do
+        task.spawn(function()
+            for i = 1, tonumber(ticksperms) do
+                task.spawn(function()
+                    local args = {
+                        [1] = "CollectDrop",
+                        [2] = {
+                            [1] = 7,
+                            [2] = 43200
+                        }
+                    }
+                    
+                    game:GetService("ReplicatedStorage"):WaitForChild("NetworkEvents"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+                end)
+            end
+        end)
+
+    end
+end, false)
 local Page = Main.Page("LocalPlayer", "3926305904", Vector2.new(924, 204), Vector2.new(36, 36))
 
 local Section = Page.Section("Local Player Information")
@@ -1297,4 +1318,3 @@ function penisjoingame(player)
     end
 end
 game:GetService("Players").PlayerAdded:Connect(penisjoingame)
-
