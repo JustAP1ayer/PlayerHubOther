@@ -76,7 +76,7 @@ while true and task.wait(0.5) do
          game:GetService("TeleportService"):Teleport(place.PlaceId, LocalPlayer)
       end)
         task.wait(0.01)
-              abc:Button("^ Copy Teleport Script for " .. place.PlaceId,function()
+              abc:Button("^ Copy TP Script",function()
          setclipboard(game:GetService("TeleportService"):Teleport(place.PlaceId, LocalPlayer))
       end)
    end
