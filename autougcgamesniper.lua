@@ -14,6 +14,13 @@ for _, v in pairs(game:GetDescendants()) do
 end
 end)
 local t = w:CreateFolder("redblue.") -- Creates the folder(U will put here your buttons,etc)
+
+ t:Label("https://discord.gg/nXERxPYUyZ",{
+    TextSize = 14; -- Self Explaining
+    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+    BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+    
+}) 
 t:Button("Infinite Yield",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
  end)
