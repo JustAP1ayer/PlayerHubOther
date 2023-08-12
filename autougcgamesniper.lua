@@ -5,15 +5,22 @@ https://discord.gg/nXERxPYUyZ
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))() 
 local w = library:CreateWindow("PlayerHub UGC") -- Creates the window
-
-local t = w:CreateFolder("!    ! redblue.#4424") -- Creates the folder(U will put here your buttons,etc)
+local zz = w:CreateFolder("discord.gg/ugcleaks") -- Creates the folder(U will put here your buttons,etc)
+z:Button("Check if Adonis",function()
+for _, v in pairs(game:GetDescendants()) do
+    if (string.find(v.Name, "ADONIS")) or (v:IsA("ImageButton") and v.Image.Name == "rbxassetid://357249130") then
+        print("May Have ADONIS")
+    end
+end
+end)
+local t = w:CreateFolder("redblue.") -- Creates the folder(U will put here your buttons,etc)
 t:Button("Infinite Yield",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
  end)
  t:Button("My Universal Script",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubUniversal.lua",true))()
  end)
- local b = w:CreateFolder("P|ayer#6812") -- Creates the folder(U will put here your buttons,etc)
+ local b = w:CreateFolder("._player") -- Creates the folder(U will put here your buttons,etc)
 local limid 
 b:Box("Input Limited ID","string",function(value) -- "number" or "string"
    limid = value
