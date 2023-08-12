@@ -75,6 +75,10 @@ while true and task.wait(0.5) do
       abc:Button(tostring(place.Name) .. " (" .. tostring(place.PlaceId) .. ")",function()
          game:GetService("TeleportService"):Teleport(place.PlaceId, LocalPlayer)
       end)
+        task.wait(0.01)
+              abc:Button("^ Copy Teleport Script for " .. place.PlaceId,function()
+         setclipboard(game:GetService("TeleportService"):Teleport(place.PlaceId, LocalPlayer))
+      end)
    end
    if pages.IsFinished then
       break
