@@ -6,7 +6,7 @@ https://discord.gg/nXERxPYUyZ
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))() 
 local w = library:CreateWindow("PlayerHub UGC") -- Creates the window
 local zz = w:CreateFolder("discord.gg/ugcleaks") -- Creates the folder(U will put here your buttons,etc)
-z:Button("Check if Adonis",function()
+zz:Button("Check if Adonis (Console)",function()
 for _, v in pairs(game:GetDescendants()) do
     if (string.find(v.Name, "ADONIS")) or (v:IsA("ImageButton") and v.Image.Name == "rbxassetid://357249130") then
         print("May Have ADONIS")
