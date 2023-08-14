@@ -21,12 +21,96 @@ local t = w:CreateFolder("redblue.") -- Creates the folder(U will put here your 
     BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
     
 }) 
+t:Button("Script Finder",function()
+   local Iris = loadstring(game:HttpGet("https://raw.githubusercontent.com/x0581/Iris-Exploit-Bundle/main/bundle.lua"))().Init(game.CoreGui)
+
+   local result = {result={scripts={}}}
+   local function search(query)
+    query = query:gsub(" ", "+")
+    result = game:GetService("HttpService"):JSONDecode(game:HttpGet(("https://\115\99\114\105\112\116\98\108\111\120.com/api/script/search?q=%s&max=500&mode=free"):format(query)))
+   end
+   
+   local viewdetails = false
+   local script = {}
+   
+   Iris:Connect(function()
+    Iris.Window({"Script Browser - Powered By \83\99\114\105\112\116\66\108\111\120.com!"}) do
+      Iris.SameLine() do
+        local query = Iris.InputText({""}).text.value
+        if Iris.Button({"Search"}).clicked then
+          task.spawn(function()
+            search(query)
+            Iris.ForceRefresh()
+          end)
+        end
+        if Iris.Button({"Clear"}).clicked then
+          result = {result={scripts={}}}
+          Iris.ForceRefresh()
+        end
+        Iris.End()
+      end
+      Iris.Table({3}) do
+        Iris.Text({"Title"})
+        Iris.NextColumn()
+        Iris.Text({"Game"})
+        Iris.NextColumn()
+        Iris.Text({"Options"})
+        Iris.NextColumn()
+        for i,v in next, result.result.scripts do
+          Iris.Text({v.title})
+          Iris.NextColumn()
+          Iris.Text({v.game.name})
+          Iris.NextColumn()
+          Iris.SameLine() do
+            Iris.Text({""})
+            if Iris.SmallButton({"Execute"}).clicked then
+              task.spawn(function()
+                loadstring(v.script)()
+              end)
+            end
+            if Iris.SmallButton({"View Details"}).clicked then
+              script = v
+              viewdetails = true
+            end
+            Iris.End()
+          end
+          Iris.NextColumn()
+        end
+        Iris.End()
+      end
+      Iris.End()
+    end
+   
+    if viewdetails then
+      Iris.Window({"View Details", [Iris.Args.Window.NoClose] = false}) do
+        if Iris.Button({"Close"}).clicked then
+          viewdetails = false
+        end
+        Iris.Table({2}) do
+          for i,v in next, script do
+            if typeof(v) ~= "table" then
+              Iris.Text({tostring(i)})
+              Iris.NextColumn()
+              Iris.Text({tostring(v)})
+              Iris.NextColumn()
+            end
+          end
+          Iris.End()
+        end
+        Iris.End()
+      end
+    end
+   end)
+end)
 t:Button("Infinite Yield",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
  end)
  t:Button("My Universal Script",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubUniversal.lua",true))()
  end)
+ t:Button("FLY GUI (mobile)",function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+end)
  local b = w:CreateFolder("._player") -- Creates the folder(U will put here your buttons,etc)
 local limid 
 b:Box("Input Limited ID","string",function(value) -- "number" or "string"
@@ -74,18 +158,26 @@ b:Button("TP to game ID",function()
    game:GetService("TeleportService"):Teleport(gameid, LocalPlayer)
 
 end)
+
+    
 local abc = w:CreateFolder("Subplaces") -- Creates the folder(U will put here your buttons,etc)
 local pages = game:GetService("AssetService"):GetGamePlacesAsync()
+local chosenversionsubplace = "Teleport"
+abc:Dropdown("What to do with Subplace",{"Teleport","Copy Script"},true,function(subplacethingy) 
+   chosenversionsubplace = subplacethingy
+end)
 
 while true and task.wait(0.5) do
     for _, place in pairs(pages:GetCurrentPage()) do
       abc:Button(tostring(place.Name) .. " (" .. tostring(place.PlaceId) .. ")",function()
+         if chosenversionsubplace == "Teleport" then
          game:GetService("TeleportService"):Teleport(place.PlaceId, LocalPlayer)
+         elseif chosenversionsubplace == "Copy Script" then
+            setclipboard("game:GetService('TeleportService'):Teleport(" .. tostring(place.PlaceId) .. ", LocalPlayer)")
+         end
       end)
         task.wait(0.01)
-        abc:Button("^ Copy TP Script",function()
-         setclipboard("game:GetService('TeleportService'):Teleport( " .. tostring(place.PlaceId) .. ", LocalPlayer)")
-      end)
+
    end
    if pages.IsFinished then
       break
