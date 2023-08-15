@@ -8,6 +8,8 @@ elseif game.PlaceId == 8146731988 then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubUltraPowerTycoon.lua", true))()
     elseif game.PlaceId == 13959733470 then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubPuppyTycoon.lua", true))()
+        elseif game.PlaceId == 14236123211 then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubPunchingSimulator.lua", true))()
 elseif game.PlaceId == 13455598887 then
     loadstring(game:HttpGet(
         "https://raw.githubusercontent.com/JustAP1ayer/PlayerHubOther/main/PlayerHubSuperBridgeRunner.lua", true))()
