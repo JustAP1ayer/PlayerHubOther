@@ -435,44 +435,7 @@ if game.PlaceId == 9346060856 then
         end
     })
 end
-local Label = Tab:CreateLabel("Label Example")
 
-local Paragraph = Tab:CreateParagraph({
-    Title = "Paragraph Example",
-    Content = "Paragraph Example"
-})
-
-local Input = Tab:CreateInput({
-    Name = "Input Example",
-    PlaceholderText = "Input Placeholder",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(Text)
-        -- The function that takes place when the input is changed
-        -- The variable (Text) is a string for the value in the text box
-    end
-})
-
-local Keybind = Tab:CreateKeybind({
-    Name = "Keybind Example",
-    CurrentKeybind = "Q",
-    HoldToInteract = false,
-    Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(Keybind)
-        -- The function that takes place when the keybind is pressed
-        -- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
-    end
-})
-
-local Dropdown = Tab:CreateDropdown({
-    Name = "Dropdown Example",
-    Options = {"Option 1", "Option 2"},
-    CurrentOption = "Option 1",
-    Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(Option)
-        -- The function that takes place when the selected option is changed
-        -- The variable (Option) is a string for the value that the dropdown was changed to
-    end
-})
 local Tab = Window:CreateTab("Other", 4483362458) -- Title, Image
 pcall(function()
     if game:GetService("Players").LocalPlayer.PlayerGui.UIPlayer.UIFriends.Background:FindFirstChild("Content") then
