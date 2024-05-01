@@ -92,6 +92,7 @@ if game.PlaceId == 9682240267 or game.PlaceId == 9346060856 then
                     BV.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
                     BV.velocity = Vector3.new(0, 0, 0)
                     BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+                    BV.Name = "PlayerHub"
                 end)
             end
             while task.wait() and getgenv().TreasureFarm == true do
@@ -119,7 +120,11 @@ if game.PlaceId == 9682240267 or game.PlaceId == 9346060856 then
             end
             pcall(function()
                 if getgenv().TreasureFarm == false or getgenv().CleanerTeleport == false then
-                    game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity"):Destroy()
+                    for i, v in pairs(game.Players.LocalPlayer.Character.HumanoidRootPart:GetChildren()) do
+                        if v.Name == "PlayerHub" then
+                            v:Destroy()
+                        end
+                    end
                 end
             end)
         end
@@ -356,6 +361,7 @@ if game.PlaceId == 15697538468 then
                     BV.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
                     BV.velocity = Vector3.new(0, 0, 0)
                     BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+                    BV.Name = "PlayerHub"
                 end)
             end
             while getgenv().AutofarmPink50 do
@@ -393,7 +399,11 @@ if game.PlaceId == 15697538468 then
             end
             pcall(function()
                 if getgenv().AutofarmPink50 == false or getgenv().CleanerTeleport == false then
-                    game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity"):Destroy()
+                    for i, v in pairs(game.Players.LocalPlayer.Character.HumanoidRootPart:GetChildren()) do
+                        if v.Name == "PlayerHub" then
+                            v:Destroy()
+                        end
+                    end
                 end
             end)
         end
@@ -435,7 +445,208 @@ if game.PlaceId == 9346060856 then
         end
     })
 end
+if game.PlaceId == 11323576374 then
+    local kuromifarmtype = "Coin Teleports To You"
+    local Section = Tab:CreateSection("Kuromi's Spooky Cafe (Event)")
 
+    local Dropdown = Tab:CreateDropdown({
+        Name = "Coin Autofarm Type",
+        Options = {"TouchInterest", "Teleport To Coin", "Coin Teleports To You"},
+        CurrentOption = kuromifarmtype,
+        Flag = "Coin Autofarm Type", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Option)
+            kuromifarmtype = Option[1]
+        end
+    })
+    local farmaskuromi = false
+    local Toggle = Tab:CreateToggle({
+        Name = "Blatantly farm as Kuromi? (below)",
+        CurrentValue = false,
+        Flag = "Blatantly Farm as Kuromi? (below)", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            farmaskuromi = Value
+        end
+    })
+    local kuromiteleportinterval = 0.5
+    local Slider = Tab:CreateSlider({
+        Name = "Kuromi Teleport Interval",
+        Range = {0, 2.5},
+        Increment = 0.1,
+        Suffix = "",
+        CurrentValue = kuromiteleportinterval,
+        Flag = "Kuromi Teleport Interval", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            kuromiteleportinterval = Value
+        end
+    })
+    local Toggle = Tab:CreateToggle({
+        Name = "Kuromi Event Farm",
+        CurrentValue = false,
+        Flag = "Kuromi Event Farm", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            getgenv().kuromiautofarm = Value
+            while getgenv().kuromiautofarm and task.wait() do
+                if game:GetService("Players").LocalPlayer:GetAttribute("isKiller") ~= nil then
+                    if game:GetService("Players").LocalPlayer:GetAttribute("isKiller") ~= 1 then
+                        for i, v in pairs(workspace.MapItem.Gold:GetChildren()) do
+                            if v:FindFirstChild("MeshesTangGuo") and v.MeshesTangGuo.Transparency == 0 and
+                                v:FindFirstChild("ChuFa") and v.ChuFa:FindFirstChild("TouchInterest") and
+                                game.Players.LocalPlayer.Character then
+                                if kuromifarmtype == "TouchInterest" then
+                                    if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                        pcall(function()
+                                            firetouchinterest(v.ChuFa,
+                                                game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"), 0)
+                                            task.wait()
+                                            firetouchinterest(v.ChuFa,
+                                                game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"), 1)
+                                        end)
+                                    end
+                                elseif kuromifarmtype == "Teleport To Coin" then
+                                    pcall(function()
+                                        game.Players.LocalPlayer.Character:PivotTo(v.ChuFa.CFrame)
+                                    end)
+                                elseif kuromifarmtype == "Coin Teleports To You" then
+                                    pcall(function()
+                                        if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                            v.ChuFa.CFrame =
+                                                game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                                    .CFrame *
+                                                    (CFrame.Angles(math.rad(math.random(1, 360)),
+                                                        math.rad(math.random(1, 360)), math.rad(math.random(1, 360))) *
+                                                        CFrame.new(0, 0, 0))
+                                        end
+                                    end)
+                                end
+                            end
+                        end
+                    else
+                        if farmaskuromi == true then
+                            if game.Players.LocalPlayer.Character then
+                                for i, v in pairs(game.Players:GetPlayers()) do
+                                    task.spawn(function()
+                                        pcall(function()
+                                            if v.Character and v.Character:FindFirstChild("HumanoidRootPart") and
+                                                game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                                game.Players.LocalPlayer.Character:PivotTo(v.Character:FindFirstChild(
+                                                                                               "HumanoidRootPart")
+                                                                                               .CFrame)
+                                            end
+                                            if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+                                                game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool")
+                                                    :Activate()
+                                            end
+                                        end)
+                                    end)
+                                    task.wait(kuromiteleportinterval)
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    })
+    getgenv().CleanerTeleport = true
+    local Toggle = Tab:CreateToggle({
+        Name = "Cleaner Teleport",
+        CurrentValue = getgenv().CleanerTeleport,
+        Flag = "Cleaner Teleport", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            getgenv().CleanerTeleport = Value
+        end
+    })
+    local kuromiteleportoffsetx = 0
+    local kuromiteleportoffsety = -4
+    local kuromiteleportoffsetz = 0
+    local Slider = Tab:CreateSlider({
+        Name = "Teleport offset X Axis (Saving)",
+        Range = {-5, 5},
+        Increment = 0.1,
+        Suffix = "",
+        CurrentValue = kuromiteleportoffsetx,
+        Flag = "Teleport offset X Axis", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            kuromiteleportoffsetx = Value
+        end
+    })
+    local Slider = Tab:CreateSlider({
+        Name = "Teleport offset Y Axis (Saving)",
+        Range = {-5, 5},
+        Increment = 0.1,
+        Suffix = "",
+        CurrentValue = kuromiteleportoffsety,
+        Flag = "Teleport offset Y Axis", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            kuromiteleportoffsety = Value
+        end
+    })
+    local Slider = Tab:CreateSlider({
+        Name = "Teleport offset Z Axis (Saving)",
+        Range = {-5, 5},
+        Increment = 0.1,
+        Suffix = "",
+        CurrentValue = kuromiteleportoffsetz,
+        Flag = "Teleport offset Z Axis (Saving)", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+            kuromiteleportoffsetz = Value
+        end
+    })
+
+    local Toggle = Tab:CreateToggle({
+        Name = "Auto Save People",
+        CurrentValue = false,
+        Flag = "Auto Save People", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(Value)
+
+            getgenv().kuromiautosave = Value
+            if getgenv().kuromiautosave == true and getgenv().CleanerTeleport == true then
+                pcall(function()
+                    local BV = Instance.new('BodyVelocity', game.Workspace)
+                    BV.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+                    BV.velocity = Vector3.new(0, 0, 0)
+                    BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+                    BV.Name = "PlayerHub"
+                end)
+            end
+            while getgenv().kuromiautosave do
+                if game:GetService("Players").LocalPlayer:GetAttribute("isKiller") ~= nil and
+                    game:GetService("Players").LocalPlayer:GetAttribute("isKiller") ~= 1 then
+                    for i, v in pairs(game.Players:GetPlayers()) do
+                        pcall(function()
+
+                            if game.Players.LocalPlayer.Character and v.Character and
+                                v.Character:FindFirstChild("HumanoidRootPart") and
+                                v.Character:FindFirstChildOfClass("Humanoid") and
+                                v.Character:FindFirstChildOfClass("Humanoid").WalkSpeed <= 6 and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed <= 6 and
+                                v:GetAttribute("isKiller") ~= nil and v:GetAttribute("isKiller") ~= 1 then
+                                repeat
+                                    task.wait()
+                                    game.Players.LocalPlayer.Character:PivotTo(v.Character:FindFirstChild(
+                                                                                   "HumanoidRootPart").CFrame +
+                                                                                   Vector3.new(kuromiteleportoffsetx,
+                                                                                   kuromiteleportoffsety, kuromiteleportoffsetz))
+                                until (((v.Character:FindFirstChildOfClass("Humanoid").WalkSpeed >= 11 or
+                                    getgenv().kuromiautosave == false) or
+                                    game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed <= 6))
+                            end
+                        end)
+                    end
+                end
+                task.wait()
+            end
+            pcall(function()
+                if getgenv().kuromiautosave == false or getgenv().CleanerTeleport == false then
+                    for i, v in pairs(game.Players.LocalPlayer.Character.HumanoidRootPart:GetChildren()) do
+                        if v.Name == "PlayerHub" then
+                            v:Destroy()
+                        end
+                    end
+                end
+            end)
+        end
+    })
+end
 local Tab = Window:CreateTab("Other", 4483362458) -- Title, Image
 pcall(function()
     if game:GetService("Players").LocalPlayer.PlayerGui.UIPlayer.UIFriends.Background:FindFirstChild("Content") then
@@ -544,6 +755,12 @@ while true and task.wait(0.555) do
 
 end
 
+local Button = Tab:CreateButton({
+    Name = "Destroy UI",
+    Callback = function()
+        Rayfield:Destroy()
+    end
+})
 
 -- Extras
 
