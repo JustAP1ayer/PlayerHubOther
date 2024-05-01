@@ -669,6 +669,7 @@ pcall(function()
             Callback = function(Value)
                 getgenv().Autoinv = Value
                 while getgenv().Autoinv == true do
+                    task.spawn(function()
                     local invitations = {}
                     local invitationamount = {}
                     local btn = game:GetService("Players").LocalPlayer.PlayerGui.UIPlayer.UIMain.Frame.UpButtons.UL
@@ -692,7 +693,6 @@ pcall(function()
                             print("Invited: " .. tostring(invitations) .. "\nMessage: " .. tostring(invitemessage))
                             invitations = {}
                             invitationamount = {}
-                            task.wait(55)
                         end
                         if v:IsA("ImageLabel") then
                             local userid = v.Id.Value
@@ -703,7 +703,8 @@ pcall(function()
                             end
                         end
                     end
-                    task.wait(5.5)
+                end)
+                    task.wait(60.5)
                 end
             end
         })
