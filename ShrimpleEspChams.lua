@@ -1,6 +1,7 @@
 local Players = game:GetService("Players")
 local function addHighlight(character)
     local highlight = Instance.new("Highlight", character)
+    highlight.FillTransparency = 1
 end
 local function onCharacterAdded(character)
     if not character:FindFirstChildOfClass("Highlight") then
